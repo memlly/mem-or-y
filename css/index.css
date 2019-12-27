@@ -7,3 +7,14 @@
 body {
   text-align: center;
 }
+
+h1 {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+p {
+  width: 80%;
+  margin: auto;
+  padding: 1rem;
+}

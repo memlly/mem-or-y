@@ -1,0 +1,24 @@
+header {
+  border: solid 1px black;
+  padding: 15px 10px;
+  overflow: hidden;
+}
+header a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+.header-right {
+  float: right;
+  line-height: 25px;
+}
+.logo {
+  font-size: 24px;
+}
+header a:hover {
+  background-color: #ddd;
+  color: black;
+}
