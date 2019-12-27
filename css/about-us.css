@@ -1,0 +1,26 @@
+h1 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: xx-large;
+}
+.developers {
+margin: 20px 5%;
+display: flex;
+justify-content: space-between;
+}
+img {
+  height: 350px;
+  width: 300px;
+  background-color: #ddd;
+  border-radius: 15%;
+}
+.benefits {
+  max-width: 50%;
+  margin: 50px auto 0;
+}
+li {
+  text-align: center;
+}
+p {
+  margin: 20px 0;
+}
