@@ -22,3 +22,9 @@ header a:hover {
   background-color: #ddd;
   color: black;
 }
+footer {
+  border: solid 1px black;
+  padding: 30px;
+  font-size: 14px;
+  text-align: center;
+}
