@@ -20,6 +20,11 @@ Once a user has failed to correctly repeat the sequence, they will be taken to a
 
 ## Wireframes & Mockups
 
+Index / Game Page
 ![Main / Game Page](./mockups/index-wireframe.jpg)
+
+Results / Score Page
 ![Results / Score Page](./mockups/score-wireframe.jpg)
+
+About Us Page
 ![About Page](./mockups/about-wireframe.jpg)
