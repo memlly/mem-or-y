@@ -28,3 +28,6 @@ Results / Score Page
 
 About Us Page
 ![About Page](./mockups/about-wireframe.jpg)
+
+Domain Modeliong
+![Domain Model](./mockups/domain-model.jpg)
