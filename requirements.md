@@ -1,6 +1,6 @@
 # Vision
 To create a fun, simple, and user-interactive memory game that progressive in difficulty with each successful attempt. This game will be a fun way to make the time go by and increase your neuroplasticity. This benefit will be proven by tracking the performance of each user and displaying it in a chart.
-#Scope (In/Out)
+# Scope (In/Out)
 ## In
 - The web app will take in a username to track results and high scores.
 - The initial main contents of the home page will display screenshots of the game being played and the rules and a summary of the game.
