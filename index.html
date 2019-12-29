@@ -19,16 +19,29 @@
       </div>
     </header>
     <main>
-      <div class="user-bar"></div>
+      <div class="user-bar">
+        <form class="login-form">
+          <label for="user-name">User:</label>
+          <input
+            id="user-name"
+            type="text"
+            placeholder="Username"
+            maxlength="10"
+            autocomplete="off"
+          />
+          <button id="login-btn" type="submit">Sign In</button>
+        </form>
+      </div>
       <div id="game-info">
-        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h1>Boost Your Memory And Have Fun!</h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate,
-          debitis nisi. Enim laudantium aliquid pariatur distinctio tenetur quae
-          voluptatem sequi ad fugit, iure iste, excepturi, blanditiis ipsum. At,
-          officia, dolore nesciunt omnis similique fuga explicabo error repellat
-          asperiores harum dolorum quos, architecto molestias quis quod
-          blanditiis alias assumenda laudantium ad.
+          (mem || y) is a Simon<sup>&reg;</sup> style memory game. Try to match
+          the correct order of the color cards. If you succeed, the sequence
+          continues to build, pushing your mind to its limits!
+        </p>
+        <p>
+          To play, simply enter your user name (with a maximum of 10
+          characters), and then click 'Play'!
         </p>
         <div class="game-images">
           <img src="https://via.placeholder.com/400x400" alt="" />
@@ -36,10 +49,18 @@
           <img src="https://via.placeholder.com/400x400" alt="" />
         </div>
       </div>
-      <div id="game-display"></div>
+      <div id="game-display">
+        <button id="play-game">
+          Play!
+        </button>
+      </div>
     </main>
     <footer>
-      Project <a target="_blank" href="https://github.com/memlly/mem-or-y">(mem || y);</a> Created by team <a href="about-us.html">boolean</a>. 2019.
+      Project
+      <a target="_blank" href="https://github.com/memlly/mem-or-y"
+        >(mem || y);</a
+      >
+      Created by team <a href="about-us.html">boolean</a>. 2019.
     </footer>
   </body>
 </html>
