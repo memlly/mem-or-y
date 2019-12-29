@@ -1,0 +1,26 @@
+.user-bar {
+  border: solid 1px black;
+  padding: 10px 5px;
+  overflow: hidden;
+  margin: 10px 20px 10px 20px;
+}
+.user-bar h1 {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+.right-bar {
+  float: right;
+  line-height: 25px;  
+}
+table {
+  width: 70%;
+  border: solid 1px black;
+  margin: 5px auto 30px auto;
+}
+h2 {
+  margin-left: 182px;
+}
