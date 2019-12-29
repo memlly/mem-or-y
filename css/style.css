@@ -1,8 +1,13 @@
+/*************************/
+/* Global Header Styling */
+/*************************/
+
 header {
-  border: solid 1px black;
+  border-bottom: solid 1px black;
   padding: 15px 10px;
   overflow: hidden;
 }
+
 header a {
   float: left;
   text-align: center;
@@ -11,20 +16,56 @@ header a {
   color: black;
   font-size: 18px;
 }
+
 .header-right {
   float: right;
-  line-height: 25px;  
+  line-height: 25px;
 }
+
 .logo {
   font-size: 24px;
 }
+
 header a:hover {
   background-color: #ddd;
   color: black;
 }
+
+/***************************/
+/* Global User Bar Styling */
+/***************************/
+.user-bar {
+  width: 100%;
+}
+
+.login-form {
+  float: left;
+  margin: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+.login-form input {
+  padding: 0.2rem;
+}
+
+.login-form button {
+  padding: 0.2rem;
+}
+
+/*************************/
+/* Global Footer Styling */
+/*************************/
 footer {
-  border: solid 1px black;
+  border-top: solid 1px black;
   padding: 30px;
   font-size: 14px;
   text-align: center;
+}
+
+/*********************************/
+/* Global "hidden" Class Styling */
+/* THIS STAYS AS LAST SELECTOR!! */
+/*********************************/
+.hidden {
+  display: none;
 }
