@@ -33,7 +33,7 @@ p {
 /* Game Display Section Styling */
 /********************************/
 #game-display {
-  /* Stuff goes here. */
+  clear: both;
 }
 
 #game-display button {

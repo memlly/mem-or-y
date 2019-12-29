@@ -18,9 +18,10 @@
         <a href="about-us.html">About Us</a>
       </div>
     </header>
+
     <main>
       <div class="user-bar">
-        <form class="login-form">
+        <form id="login-form" class="login-form">
           <label for="user-name">User:</label>
           <input
             id="user-name"
@@ -49,12 +50,13 @@
           <img src="https://via.placeholder.com/400x400" alt="" />
         </div>
       </div>
-      <div id="game-display">
+      <div id="game-display" class="hidden">
         <button id="play-game">
           Play!
         </button>
       </div>
     </main>
+
     <footer>
       Project
       <a target="_blank" href="https://github.com/memlly/mem-or-y"
@@ -62,5 +64,7 @@
       >
       Created by team <a href="about-us.html">boolean</a>. 2019.
     </footer>
+
+    <script src="./js/app.js"></script>
   </body>
 </html>
