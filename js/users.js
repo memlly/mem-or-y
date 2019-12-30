@@ -7,35 +7,35 @@
 var allUsers = [];
 
 // Declare constructor for User instances..
-function User(userName, loggedIn = false) {
+function User(userName = '', loggedIn = false, highScore = 0, allScores = []) {
   this.userName = userName;
   this.loggedIn = loggedIn;
-  this.highScore = 0;
-  this.allScores = [];
+  this.highScore = highScore;
+  this.allScores = allScores;
   allUsers.push(this);
 }
 
 // Declare function to log in User.
 function logInUser(loginForm) {
   var userNameValue = document.getElementById('user-name').value;
+  var falseUsers = 0;
 
   if (userNameValue === '') {
     alert('Please enter a Username!');
   } else {
     if (allUsers.length === 0) {
       new User(userNameValue, true);
-      console.log('logged in first time');
     } else {
       for (let i = 0; i < allUsers.length; i++) {
         if (allUsers[i].userName === userNameValue) {
           allUsers[i].loggedIn = true;
-          console.log('logged in existing');
           break;
-        } else {
-          new User(userNameValue, true);
-          console.log('logged in new');
-          break;
+        } else if (allUsers[i].userName !== userNameValue) {
+          falseUsers++;
         }
+      }
+      if (falseUsers === allUsers.length) {
+        new User(userNameValue, true);
       }
     }
 
@@ -81,14 +81,22 @@ function loadPage() {
     var parsedUsers = JSON.parse(localStorage.getItem('users'));
 
     for (let i = 0; i < parsedUsers.length; i++) {
-      allUsers.push(parsedUsers[i]);
+      new User(
+        parsedUsers[i].userName,
+        parsedUsers[i].loggedIn,
+        parsedUsers[i].highScore,
+        parsedUsers[i].allScores
+      );
     }
-    displayUser();
+    for (let i = 0; i < allUsers.length; i++) {
+      if (allUsers[i].loggedIn === true) {
+        displayUser();
+      }
+    }
   }
 
   loginForm.addEventListener('submit', function(e) {
     e.preventDefault();
-
     logInUser(loginForm);
   });
 
