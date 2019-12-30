@@ -10,22 +10,41 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
-.zoom-in {
+#dev2 {
   overflow: hidden;
   border-radius: 15%;
+  background-color: transparent;
+}
+input[type=checkbox] {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
 }
 img {
   height: 300px;
   width: 400px;
+  pointer-events: none;
 }
-img:hover {
+#dev2:hover {
+  overflow: hidden;
   transition: 0.5s;
   transform: translateX(-100px) 
-  translateY(70px) scale(1.95);
+  translateY(70px) scale(1.95)
+  /* rotateY(180deg); */
 }
-img:not(:hover) {
+label img:not(:hover) {
   transition: 0.5s;
 }
+input[type=checkbox]:checked ~ #dev2 {
+  transition: 0.5s;
+  transform: rotateY(180deg); 
+}
+input[type=checkbox]:not(:checked) ~ #dev2 {
+  transition: 0.5s;
+}
+/* .dev-card:not(:active) {
+  transition: 0.5s;
+} */
 .benefits {
   max-width: 50%;
   margin: 50px auto 0;
