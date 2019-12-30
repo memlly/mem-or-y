@@ -5,15 +5,23 @@ h1 {
 }
 .developers {
   max-width: 1600px ;
-margin: 20px auto;
-display: flex;
-justify-content: space-between;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.zoom-in {
+  overflow: hidden;
+  border-radius: 15%;
 }
 img {
   height: 300px;
   width: 400px;
   margin: 0 1%;
-  border-radius: 15%;
+}
+img:hover {
+  transition: 0.5s;
+  transform: translateX(-100px) 
+  translateY(70px) scale(1.95);
 }
 .benefits {
   max-width: 50%;
