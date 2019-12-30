@@ -24,6 +24,14 @@ header a {
 
 .logo {
   font-size: 24px;
+  font-family: 'Courier New', monospace;
+  font-weight: bolder;
+}
+.para {
+  color: black;
+}
+.memy {
+  color: rgb(78, 183, 248);
 }
 
 header a:hover {
