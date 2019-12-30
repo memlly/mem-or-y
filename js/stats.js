@@ -24,12 +24,22 @@ function leaderBoard() {
 //   new User(users[i].userName, users[i].loggedIn, users[i].highScore, users[i].allScores);
 // }
 
-new User('Andrew', false, 0, [5,6,4,7,8,6,10]);
+new User('Andrew', true, 0, [5,6,4,7,8,6,10]);
 new User('robert', false, 0, [3,8,3,6,9,5,34]);
 new User('eugene', false, 0, [7,0,7,4,2,6,7]);
 new User('someone', false, 0, [7,0,1,2,35,32,5]);
 // sort after objects are instantiated
 leaderBoard();
+
+// finds which user is current user and displays name and high score
+for (var i = 0; i < allUsers.length; i ++) {
+  if (allUsers[i].loggedIn === true) {
+    var userNameEl = document.getElementsByClassName('user-name');
+    userNameEl[0].textContent = allUsers[i].userName;
+    var userScoreEl = document.getElementsByClassName('score');
+    userScoreEl[0].textContent = allUsers[i].highScore;
+  }
+}
 
 // Assigns a variable to the table
 var tableHolder = document.getElementsByTagName('tbody')[0];
@@ -70,3 +80,5 @@ for (var i = 0; i < allUsers.length; i++){
   allUsers[i].render();
 }
 
+
+localStorage.setItem('users', JSON.stringify(allUsers));
