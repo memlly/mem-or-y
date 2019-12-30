@@ -4,14 +4,15 @@ h1 {
   font-size: xx-large;
 }
 .developers {
-margin: 20px 5%;
+  max-width: 1600px ;
+margin: 20px auto;
 display: flex;
 justify-content: space-between;
 }
 img {
-  height: 350px;
-  width: 300px;
-  background-color: #ddd;
+  height: 300px;
+  width: 400px;
+  margin: 0 1%;
   border-radius: 15%;
 }
 .benefits {
@@ -22,5 +23,29 @@ li {
   text-align: center;
 }
 p {
+  text-indent: 25px;
+  text-align: left;
   margin: 20px 0;
+}
+.benefits {
+  text-align: center;
+}
+ul {
+  display: inline-block;
+}
+li {
+  text-align: left;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+footer a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #000;
+}
+footer a:hover {
+  background-color: #ddd;
 }
