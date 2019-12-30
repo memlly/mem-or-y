@@ -49,7 +49,7 @@ header a:hover {
 /* Global User Bar Styling */
 /***************************/
 .user-bar {
-  width: 100%;
+  width: 90%;
 }
 
 #login-form {
