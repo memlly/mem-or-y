@@ -37,6 +37,7 @@ function logInUser() {
   }
 
   loginForm.reset();
+  localStorage.setItem('users', JSON.stringify(allUsers));
 }
 
 // Declare function to display logged in User.
@@ -62,6 +63,7 @@ function logOutUser() {
       break;
     }
   }
+  localStorage.setItem('users', JSON.stringify(allUsers));
   document.getElementById('login-form').classList.toggle('hidden');
   document.getElementById('logout-form').classList.toggle('hidden');
 }
