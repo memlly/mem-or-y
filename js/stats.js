@@ -76,7 +76,7 @@ User.prototype.render = function() {
 // renders first row
 firstRow();
 // loop through 10 users and display them in leaderboard
-for (i = 0; i < 10; i++){
+for (i = 0; i < allUsers.length; i++) {
   allUsers[i].render();
 }
 
