@@ -29,6 +29,7 @@ Card.prototype.render = function() {
   var cardContainer = document.getElementById('card-container');
   var newCard = document.createElement('div');
   newCard.classList.add('color-card');
+  newCard.id = this.index;
   cardContainer.appendChild(newCard);
 };
 
@@ -40,11 +41,18 @@ function initSequence() {
   cardSequence.forEach(performSequence);
 }
 
+// Declare function that flashes Card elements in sequence.
 function performSequence(sequenceIndex) {
   for (let i = 0; i < colorCards.length; i++) {
-    if (colorCards[i].index === sequenceIndex) {
-      console.log(`Color Card index #: ${i}`);
-    }
+    setTimeout(function() {
+      let cardID = document.getElementById(colorCards[i].index);
+      if (colorCards[i].index === sequenceIndex) {
+        cardID.style.backgroundColor = 'yellow';
+      }
+      setTimeout(function() {
+        cardID.style.backgroundColor = 'blue';
+      }, 1000);
+    }, 1000);
   }
 }
 
