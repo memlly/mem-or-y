@@ -5,7 +5,7 @@ var users = JSON.parse(localStorage.getItem('users'));
 var allUsers = [];
 
 // Declare constructor for user instances
-function User(userName, loggedIn, highScore, allScores) {
+function User(userName, loggedIn, allScores) {
   this.userName = userName;
   this.loggedIn = loggedIn;
   this.allScores = allScores;
@@ -80,5 +80,3 @@ for (var i = 0; i < allUsers.length; i++){
   allUsers[i].render();
 }
 
-
-localStorage.setItem('users', JSON.stringify(allUsers));
