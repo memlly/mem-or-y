@@ -21,7 +21,7 @@
 
     <main>
       <div class="user-bar">
-        <form id="login-form" class="login-form">
+        <form id="login-form">
           <label for="user-name">User:</label>
           <input
             id="user-name"
@@ -29,9 +29,14 @@
             placeholder="Username"
             maxlength="10"
             autocomplete="off"
+            required
           />
           <button id="login-btn" type="submit">Sign In</button>
         </form>
+        <div id="logout-form" class="hidden">
+          <p>User: <span id="logged-in-user"></span></p>
+          <button id="logout-btn">Log Out</button>
+        </div>
       </div>
       <div id="game-info">
         <h1>Boost Your Memory And Have Fun!</h1>
@@ -65,6 +70,6 @@
       Created by team <a href="about-us.html">boolean</a>. 2019.
     </footer>
 
-    <script src="./js/app.js"></script>
+    <script src="./js/users.js"></script>
   </body>
 </html>
