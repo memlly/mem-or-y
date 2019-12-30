@@ -10,6 +10,7 @@ var allUsers = [];
 function User(userName = '', loggedIn = false, highScore = 0, allScores = []) {
   this.userName = userName;
   this.loggedIn = loggedIn;
+  // TODO: highScore is not needed. Delete all instances.
   this.highScore = highScore;
   this.allScores = allScores;
   allUsers.push(this);
