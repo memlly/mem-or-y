@@ -12,6 +12,13 @@ function User(userName, loggedIn, highScore, allScores) {
   this.highScore = Math.max(...this.allScores);
   allUsers.push(this);
 }
+// arrange objects in allusers from highest to lowest highscore
+// obtained from https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_object1
+function leaderBoard() {
+  allUsers.sort(function(a , b) {
+    return b.highScore - a.highScore;
+  });
+}
 // Create user instances
 // for (var i = 0; i < users.length; i ++) {
 //   new User(users[i].userName, users[i].loggedIn, users[i].highScore, users[i].allScores);
@@ -19,8 +26,10 @@ function User(userName, loggedIn, highScore, allScores) {
 
 new User('Andrew', false, 0, [5,6,4,7,8,6,10]);
 new User('robert', false, 0, [3,8,3,6,9,5,34]);
-new User('eugene', false, 0, [7,34,7,4,2,6,7]);
+new User('eugene', false, 0, [7,0,7,4,2,6,7]);
 new User('someone', false, 0, [7,0,1,2,35,32,5]);
+// sort after objects are instantiated
+leaderBoard();
 
 // Assigns a variable to the table
 var tableHolder = document.getElementsByTagName('tbody')[0];
@@ -60,3 +69,4 @@ firstRow();
 for (var i = 0; i < allUsers.length; i++){
   allUsers[i].render();
 }
+
