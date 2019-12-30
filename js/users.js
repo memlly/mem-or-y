@@ -19,25 +19,30 @@ function User(userName, loggedIn = false) {
 function logInUser() {
   var userNameValue = document.getElementById('user-name').value;
 
-  if (allUsers.length === 0) {
-    new User(userNameValue, true);
-    console.log('logged in first time');
+  if (userNameValue === '') {
+    alert('Please enter a Username!');
   } else {
-    for (let i = 0; i < allUsers.length; i++) {
-      if (allUsers[i].userName === userNameValue) {
-        allUsers[i].loggedIn = true;
-        console.log('logged in existing');
-        break;
-      } else {
-        new User(userNameValue, true);
-        console.log('logged in new');
-        break;
+    if (allUsers.length === 0) {
+      new User(userNameValue, true);
+      console.log('logged in first time');
+    } else {
+      for (let i = 0; i < allUsers.length; i++) {
+        if (allUsers[i].userName === userNameValue) {
+          allUsers[i].loggedIn = true;
+          console.log('logged in existing');
+          break;
+        } else {
+          new User(userNameValue, true);
+          console.log('logged in new');
+          break;
+        }
       }
     }
-  }
 
-  loginForm.reset();
-  localStorage.setItem('users', JSON.stringify(allUsers));
+    loginForm.reset();
+    localStorage.setItem('users', JSON.stringify(allUsers));
+    displayUser();
+  }
 }
 
 // Declare function to display logged in User.
@@ -76,7 +81,6 @@ loginForm.addEventListener('submit', function(e) {
   e.preventDefault();
 
   logInUser();
-  displayUser();
 });
 
 // Grab logout button by ID.
