@@ -38,17 +38,31 @@ header a:hover {
   width: 100%;
 }
 
-.login-form {
+#login-form {
   float: left;
   margin: 1rem 2rem;
   font-size: 1.2rem;
 }
 
-.login-form input {
+#login-form input {
   padding: 0.2rem;
 }
 
-.login-form button {
+#login-form button {
+  padding: 0.2rem;
+}
+
+#logout-form {
+  float: left;
+  margin: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+#logout-form p {
+  display: inline;
+}
+
+#logout-form button {
   padding: 0.2rem;
 }
 
