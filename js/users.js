@@ -16,7 +16,7 @@ function User(userName, loggedIn = false) {
 }
 
 // Declare function to log in User.
-function logInUser() {
+function logInUser(loginForm) {
   var userNameValue = document.getElementById('user-name').value;
 
   if (userNameValue === '') {
@@ -73,18 +73,26 @@ function logOutUser() {
   document.getElementById('logout-form').classList.toggle('hidden');
 }
 
-// Grab login form by ID.
-var loginForm = document.getElementById('login-form');
+function loadPage() {
+  var loginForm = document.getElementById('login-form');
+  var logoutButton = document.getElementById('logout-btn');
 
-// Assign event listener to loginForm.
-loginForm.addEventListener('submit', function(e) {
-  e.preventDefault();
+  if (localStorage.getItem('users') !== null) {
+    var parsedUsers = JSON.parse(localStorage.getItem('users'));
 
-  logInUser();
-});
+    for (let i = 0; i < parsedUsers.length; i++) {
+      allUsers.push(parsedUsers[i]);
+    }
+    displayUser();
+  }
 
-// Grab logout button by ID.
-var logoutButton = document.getElementById('logout-btn');
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-// Assign event listener to logoutButton.
-logoutButton.addEventListener('click', logOutUser);
+    logInUser(loginForm);
+  });
+
+  logoutButton.addEventListener('click', logOutUser);
+}
+
+loadPage();
