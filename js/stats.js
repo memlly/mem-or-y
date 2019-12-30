@@ -22,3 +22,41 @@ new User('robert', false, 0, [3,8,3,6,9,5,34]);
 new User('eugene', false, 0, [7,34,7,4,2,6,7]);
 new User('someone', false, 0, [7,0,1,2,35,32,5]);
 
+// Assigns a variable to the table
+var tableHolder = document.getElementsByTagName('tbody')[0];
+// renders first row on table
+function firstRow() {
+  var userRow = document.createElement('tr');
+  var userData = document.createElement('td');
+  userData.textContent = 'Rank';
+  userRow.appendChild(userData);
+  userData = document.createElement('td');
+  userData.textContent = 'User';
+  userRow.appendChild(userData);
+  userData = document.createElement('td');
+  userData.textContent = 'Score';
+  userRow.appendChild(userData);
+  tableHolder.appendChild(userRow);
+} 
+// Creates a method that renders the table
+var place = 1;
+User.prototype.render = function() {
+  var userRow = document.createElement('tr');
+  var userData = document.createElement('td');
+  userData.textContent = `${place}`;
+  userRow.appendChild(userData);
+  place++;
+  userData = document.createElement('td');
+  userData.textContent = `${this.userName}`;
+  userRow.appendChild(userData);
+  userData = document.createElement('td');
+  userData.textContent = `${this.highScore}`;
+  userRow.appendChild(userData);
+  tableHolder.appendChild(userRow);
+}
+// renders first row
+firstRow();
+// loop through 10 users and display them in leaderboard
+for (var i = 0; i < allUsers.length; i++){
+  allUsers[i].render();
+}
