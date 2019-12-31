@@ -14,9 +14,10 @@ function toggleGame() {
   document.getElementById('game-display').classList.toggle('hidden');
 }
 
-// Declare arrays for cards / card sequence.
+// Declare arrays for cards, card sequence, and clicked cards.
 var colorCards = [];
 var cardSequence = [];
+var clickedCards = [];
 
 // Declare constructor for cards.
 function Card(index = 0) {
@@ -72,7 +73,27 @@ document.getElementById('game-start').addEventListener('click', function() {
 });
 
 var cardClick = [].slice.call(document.getElementsByClassName('color-card'));
+var clickCount = 0;
 
+// Compare the clicked element to the corresponding sequence element.
+function clickCompare(element) {
+  clickedCards.push(parseInt(element.id));
+  let cardID = document.getElementById(element.id);
+  if (clickedCards[clickCount] === cardSequence[clickCount]) {
+    cardID.style.backgroundColor = 'green';
+    setTimeout(function() {
+      cardID.style.backgroundColor = 'blue';
+    }, 500);
+  } else {
+    let allCards = document.getElementsByClassName('color-card');
+    for (let i = 0; i < allCards.length; i++) {
+      allCards[i].style.backgroundColor = 'red';
+    }
+  }
+  clickCount++;
+}
+
+// Add event listeners on each Card element.
 cardClick.forEach(function(element) {
   element.addEventListener('mouseenter', function() {
     element.style.cursor = 'pointer';
@@ -82,5 +103,8 @@ cardClick.forEach(function(element) {
   });
   element.addEventListener('mouseleave', function() {
     element.style.backgroundColor = 'blue';
+  });
+  element.addEventListener('click', function() {
+    clickCompare(element);
   });
 });
