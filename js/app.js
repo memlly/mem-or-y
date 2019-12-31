@@ -48,7 +48,6 @@ function performSequence() {
     let cardIndex = cardSequence[i];
     let cardID = document.getElementById(colorCards[cardIndex].index);
     setTimeout(function() {
-      console.log(cardIndex);
       cardID.style.backgroundColor = 'yellow';
       setTimeout(function() {
         cardID.style.backgroundColor = 'blue';
