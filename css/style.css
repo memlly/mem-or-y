@@ -80,6 +80,21 @@ header a:hover {
   padding: 0.2rem;
 }
 
+#game-btn {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-60%);
+  margin: auto 1rem;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+}
+
+#game-btn:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
 /*************************/
 /* Global Footer Styling */
 /*************************/

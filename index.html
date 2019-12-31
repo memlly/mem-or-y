@@ -37,6 +37,7 @@
           <p>User: <span id="logged-in-user"></span></p>
           <button id="logout-btn">Log Out</button>
         </div>
+        <div id="game-btn">Play Game</div>
       </div>
       <div id="game-info">
         <h1>Boost Your Memory And Have Fun!</h1>
@@ -47,7 +48,7 @@
         </p>
         <p>
           To play, simply enter your user name (with a maximum of 10
-          characters), and then click 'Play'!
+          characters), and then click 'Play Game'!
         </p>
         <div class="game-images">
           <img src="https://via.placeholder.com/400x400" alt="" />
@@ -56,9 +57,8 @@
         </div>
       </div>
       <div id="game-display" class="hidden">
-        <button id="play-game">
-          Play!
-        </button>
+        <div id="game-start">START</div>
+        <div id="card-container"></div>
       </div>
     </main>
 
@@ -71,5 +71,6 @@
     </footer>
 
     <script src="./js/users.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>
