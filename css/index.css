@@ -36,6 +36,21 @@ p {
   clear: both;
 }
 
+#game-start {
+  position: relative;
+  top: 1.5rem;
+  width: fit-content;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1.2rem;
+  margin: 2rem auto;
+}
+
+#game-start:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
 #card-container {
   width: 100%;
 }
