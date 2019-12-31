@@ -36,7 +36,30 @@ p {
   clear: both;
 }
 
-#game-display button {
-  font-size: 1.4rem;
-  padding: 0.2rem;
+#game-start {
+  position: relative;
+  top: 1.5rem;
+  width: fit-content;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1.2rem;
+  margin: 2rem auto;
+}
+
+#game-start:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+#card-container {
+  width: 100%;
+}
+
+.color-card {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  margin: 2rem 1rem;
+  border-radius: 50%;
+  background-color: blue;
 }
