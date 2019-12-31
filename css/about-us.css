@@ -1,11 +1,29 @@
 h1 {
-  margin-top: 20px;
+  color: yellow;
+  font-family: 'Courier New', Courier, monospace;
   text-align: center;
   font-size: xx-large;
+  font-weight: 600;
+}
+section {
+  background-color: gray;
+  min-width: fit-content;
+  margin: 50px 2%;
+  padding: 2%;
+  border: 1px #000 solid;
+  box-shadow: 10px 10px 10px #000;
+}
+h4 {
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 10px;
+  font-size: 20px;
+  color: yellow;
+  font-weight: 600;
 }
 /* .benefits section */
 .benefits {
-  max-width: 50%;
+  max-width: 40%;
+  min-width: 500px;
   margin: 50px auto;
   text-align: center;
 }
@@ -16,110 +34,104 @@ p {
   text-indent: 25px;
   text-align: left;
   margin: 20px 0;
-}
-.benefits {
+  font-weight: bolder;
 }
 ul {
-  display: inline-block;
+  margin: 0 auto;
+}
+ul > li {
+  background: url(../img/brainbulb-sm.png) no-repeat 25% center;
+  padding: 10px 0 10px 34%;
 }
 li {
   text-align: left;
+  font-weight: bolder;
 }
 /* .developers section */
 .developers {
-  width: 1600px;
   height: 300px;
-  margin: 20px auto;
+  margin: 20px 0;
   display: flex;
-  justify-content: space-between;
 }
 
 label {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    width: 400px;
-    height: 300px;
-    position: absolute;
-    top: 30%; 
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 15%;
-}
-
-#dev1 {
-  left: 13%;
+  transform-style: preserve-3d;
+  width: 400px;
+  height: 300px;
+  position: relative;
+  top: 150px;
+  left: 200px; 
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15%;
 }
 #dev2 {
-  left: 50%;
+  margin: 0 auto;
 }
-#dev3 {
-  left: 87%;
+.back-card {
+  border-radius: 15%;
 }
-
+.dev-links {
+  position: relative;
+  bottom: 0px;
+}
+.dev-links img {
+  height: 32px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.dev-links a:hover{
+  background-color: slategrey;
+}
+.linkedin {
+  margin-left: 150px;
+  margin-right: 10px;
+}
 .front-card {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    transform-style: preserve-3d;
-    transition: all 0.6s;
-    z-index: 20;
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: 1.6s;
+  border-radius: 15%;
 }
-
 img {
   width: 100%;
 }
 .front-card div {
-    position: absolute;
-    text-align: center;
-    backface-visibility: hidden;
+  text-align: center;
+  position: absolute;
+  backface-visibility: hidden;
 }
-
 .front-card .back-card {
   width: 400px;
   height: 300px;
-  background-color: #ddd;
+  background-color: slategrey;
   transform: rotateY(180deg);
 }
-.back-card {
-  background-color: black;
-}
 #dev1:hover .front {
-  transition: all 0.6s;
+  transition: 0.9s;
   transform: translateX(70px) 
     translateY(175px) scale(4);
 }
 #dev2:hover .front {
-  transition: all 0.6s;
+  transition: 0.6s;
   transform: translateX(-100px) 
     translateY(70px) scale(1.95);
 }
 #dev3:hover .front {
-  transition: all 0.6s;
+  transition: 0.6s;
   transform: translateX(161px) 
     translateY(220px) scale(2.2);
 }
 label:not(:hover) .front {
   transition: 0.6s;
 }
-
 input {
-    display: none;
+  display: none;
 }
 :checked + .front-card {
-    transform: rotateY(-180deg);
-}
-
-/* footer section */
-
-a {
-  text-decoration: none;
-  font-weight: bolder;
-  color: rgb(78, 183, 248);
-  padding: 5px;
-}
-footer a:hover {
-  background-color: #ddd;
-  color: #000;
-  border-radius: 5px;
+  transform: rotateY(-180deg);
 }
