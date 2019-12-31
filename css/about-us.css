@@ -87,12 +87,17 @@ img {
 #dev1:hover .front {
   transition: all 0.6s;
   transform: translateX(70px) 
-  translateY(175px) scale(4);
+    translateY(175px) scale(4);
 }
 #dev2:hover .front {
   transition: all 0.6s;
   transform: translateX(-100px) 
-  translateY(70px) scale(1.95);
+    translateY(70px) scale(1.95);
+}
+#dev3:hover .front {
+  transition: all 0.6s;
+  transform: translateX(161px) 
+    translateY(220px) scale(2.2);
 }
 label:not(:hover) .front {
   transition: 0.6s;
