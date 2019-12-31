@@ -1,9 +1,6 @@
 * {
   font-family: 'Courier New', monospace;
 }
-body {
-  background-color: lightslategray;
-}
 .user-bar {
   border: solid 1px black;
   padding: 10px 5px;
@@ -28,13 +25,13 @@ h1 > span {
   color: yellow;
 }
 h2 {
-  margin-left: 182px;
+  margin-left: 304px;
   color: rgb(78, 183, 248);
   font-size: 20px; 
   font-weight: bold;
 }
 table {
-  width: 70%;
+  width: 50%;
   border: solid 1px black;
   margin: 5px auto 30px auto;
   color: yellow;
