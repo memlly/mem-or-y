@@ -36,8 +36,8 @@ function leaderBoard() {
 //   new User(users[i].userName, users[i].loggedIn, users[i].highScore, users[i].allScores);
 // }
 
-new User('Andrew', true, [5,6,4,7,8,6,10,8,6,5,5,4,4,4,5]);
-new User('robert', false, [3,8,3,6,9,5,34]);
+new User('Andrew', true, [5,6,4,4,5]);
+new User('robert', false, [3,8,3,6,9,5,34,5,6,7,8]);
 new User('eugene', false, [7,0,7,4,2,6,7]);
 new User('someone', false, [7,0,1,2,35,32,5]);
 // sort after objects are instantiated
@@ -113,25 +113,33 @@ function userArray(property) {
 }
 // creates an array of average score per session
 var avgArray = [];
-for (i = 0; i < allUsers.length; i++) {
-  for (var j = 0; j < allUsers[i].allScores.length; j++) {
-    if (!avgArray[j]) {
-      avgArray[j] = (allUsers[i].allScores[j] / allUsers.length);
-    } else {
-      avgArray[j] += (allUsers[i].allScores[j] / allUsers.length);
+for (i = 0; i < dataLabel.length; i++) {
+  var counter = 0;
+  for (var j = 0; j < allUsers.length; j++) {
+    if (allUsers[j].allScores[i]) {
+      if (!avgArray[i]) {
+        avgArray[i] = allUsers[j].allScores[i];
+      } else {
+        avgArray[i] += allUsers[j].allScores[i];
+      }
+      counter++;
     }
   }
+  avgArray[i] /= counter;
 }
 
 // creates chart to display results
-var ctx = document.getElementById('resultsChart');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: dataLabel,
-    datasets: [{
-      label: currentUser('userName'),
-      data: currentUser('allScores')
-    }]
-  }
-});
+// var ctx = document.getElementById('resultsChart');
+// var myChart = new Chart(ctx, {
+//   type: 'line',
+//   data: {
+//     labels: dataLabel,
+//     datasets: [{
+//       label: currentUser('userName'),
+//       data: currentUser('allScores')
+//     }, {
+//       label: 'Average Score',
+//       data: 
+//     }]
+//   }
+// });
