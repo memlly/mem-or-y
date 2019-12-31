@@ -13,9 +13,9 @@ header a {
   text-align: center;
   font-size: 18px;
   font-family: 'Courier New', monospace;
+  padding: 12px;
 }
 a {
-  padding: 12px;
   text-decoration: none;
   color: rgb(78, 183, 248);
   font-weight: bolder;
