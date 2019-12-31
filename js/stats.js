@@ -165,6 +165,11 @@ var myChart = new Chart(ctx, {
     }],
   },
   options: {
+    title: {
+      display: true,
+      fontColor: 'black',
+      text: 'Progress Over Sessions'
+    },
     scales: {
       xAxes: [{
         ticks: {
