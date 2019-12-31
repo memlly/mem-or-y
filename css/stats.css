@@ -48,4 +48,6 @@ table tr:first-child {
 .chart {
   width: 800px;
   margin: auto;
+  background-color: gray;
+  border: black 1px solid;
 }

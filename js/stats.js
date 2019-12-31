@@ -143,16 +143,50 @@ var myChart = new Chart(ctx, {
   data: {
     labels: dataLabel,
     datasets: [{
-      label: currentUser('userName'),
-      data: currentUser('allScores')
-    }, {
-      type: 'line',
-      label: 'Average Score',
-      data: avgArray
-    }, {
       type: 'scatter',
       data: allpoints,
-      label: 'All Scores'
+      label: 'All Scores',
+      backgroundColor: 'rgb(78, 183, 248)',
+      borderColor: 'yellow',
+      pointRadius: 2
+    },{
+      label: currentUser('userName'),
+      data: currentUser('allScores'),
+      fill: false,
+      pointRadius: 0,
+      borderColor: 'yellow'
+    },{
+      type: 'line',
+      label: 'Average Score',
+      data: avgArray,
+      pointRadius: 0,
+      fill: false,
+      borderColor: 'rgb(78, 183, 248)'
     }],
-  }
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        ticks: {
+          fontColor: 'black'
+        },
+        gridLines: {
+          zeroLineColor: 'black'
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          fontColor: 'black'
+        },
+        gridLines: {
+          zeroLineColor: 'black'
+        }
+      }]
+    },
+    legend: {
+      labels: {
+        fontColor: 'black'
+      }
+    }
+}
 });
