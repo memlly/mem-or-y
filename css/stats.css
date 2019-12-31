@@ -1,9 +1,6 @@
 * {
   font-family: 'Courier New', monospace;
 }
-body {
-  background-color: lightslategray;
-}
 .user-bar {
   border: solid 1px black;
   padding: 10px 5px;

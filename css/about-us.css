@@ -106,13 +106,7 @@ input {
 }
 
 /* footer section */
-footer {
-  position: fixed;
-  bottom: 0;
-  padding: 10px;
-  width: 100%;
-  background-color: gray;
-}
+
 a {
   text-decoration: none;
   font-weight: bolder;
