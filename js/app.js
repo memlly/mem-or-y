@@ -40,6 +40,7 @@ function initSequence() {
     cardSequence.push(Math.floor(Math.random() * colorCards.length));
   }
   performSequence();
+  addCardClicks();
 }
 
 // Declare function that flashes Card elements in sequence.
@@ -72,7 +73,7 @@ document.getElementById('game-start').addEventListener('click', function() {
   document.getElementById('card-container').style.paddingTop = '5.6rem';
 });
 
-var cardClick = [].slice.call(document.getElementsByClassName('color-card'));
+// var cardClick = Array.from(document.getElementsByClassName('color-card'));
 var clickCount = 0;
 
 // Compare the clicked element to the corresponding sequence element.
@@ -88,23 +89,56 @@ function clickCompare(element) {
     let allCards = document.getElementsByClassName('color-card');
     for (let i = 0; i < allCards.length; i++) {
       allCards[i].style.backgroundColor = 'red';
+      removeCardClicks();
     }
   }
   clickCount++;
 }
 
+function cursorMouse(event) {
+  event.target.style.cursor = 'pointer';
+}
+
+function yellowMouse(event) {
+  event.target.style.backgroundColor = 'yellow';
+}
+
+function blueMouse(event) {
+  event.target.style.backgroundColor = 'blue';
+}
+
+function clickMouse(event) {
+  clickCompare(event);
+}
+
 // Add event listeners on each Card element.
-cardClick.forEach(function(element) {
-  element.addEventListener('mouseenter', function() {
-    element.style.cursor = 'pointer';
-  });
-  element.addEventListener('mouseenter', function() {
-    element.style.backgroundColor = 'yellow';
-  });
-  element.addEventListener('mouseleave', function() {
-    element.style.backgroundColor = 'blue';
-  });
-  element.addEventListener('click', function() {
-    clickCompare(element);
-  });
+
+let cards = document.querySelectorAll('.color-card');
+
+cards.forEach(function(card) {
+  card.addEventListener('mouseenter', cursorMouse);
 });
+
+function addCardClicks() {
+  event.srcElement.addEventListener(
+    'mouseenter',
+    cursorMouse(event.srcElement)
+  );
+  event.srcElement.addEventListener(
+    'mouseenter',
+    yellowMouse(event.srcElement)
+  );
+  event.srcElement.addEventListener('mouseleave', blueMouse(event.srcElement));
+  event.srcElement.addEventListener('click', clickMouse(event.srcElement));
+}
+// cardClick.forEach(addCardClicks());
+
+// Remove event listeners on each Card element.
+function removeCardClicks() {
+  cardClick.forEach(function(element) {
+    element.removeEventListener('mouseenter', cursorMouse(element));
+    element.removeEventListener('mouseenter', yellowMouse(element));
+    element.removeEventListener('mouseleave', blueMouse(element));
+    element.removeEventListener('click', clickMouse(element));
+  });
+}
