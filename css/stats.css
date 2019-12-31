@@ -1,26 +1,47 @@
+* {
+  font-family: 'Courier New', monospace;
+}
+body {
+  background-color: lightslategray;
+}
 .user-bar {
   border: solid 1px black;
   padding: 10px 5px;
   overflow: hidden;
-  margin: 10px 20px 10px 20px;
+  margin: 10px auto 10px auto;
+  background-color: gray;
 }
 .user-bar h1 {
   float: left;
   text-align: center;
-  padding: 12px;
+  padding: 12px 24px 12px 24px;
   text-decoration: none;
-  color: black;
-  font-size: 18px;
+  color: rgb(78, 183, 248);
+  font-size: 24px;
+  font-weight: bold;
 }
 .right-bar {
   float: right;
   line-height: 25px;  
 }
+h1 > span {
+  color: yellow;
+}
+h2 {
+  margin-left: 182px;
+  color: rgb(78, 183, 248);
+  font-size: 20px; 
+  font-weight: bold;
+}
 table {
   width: 70%;
   border: solid 1px black;
   margin: 5px auto 30px auto;
+  color: yellow;
+  text-align: center;
 }
-h2 {
-  margin-left: 182px;
+table tr:first-child {
+  color: rgb(78, 183, 248);
+  font-weight: bold;
+  font-size: 18px;
 }
