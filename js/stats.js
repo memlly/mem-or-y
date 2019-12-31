@@ -12,6 +12,14 @@ function User(userName, loggedIn, allScores) {
   this.highScore = Math.max(...this.allScores);
   allUsers.push(this);
 }
+// function that returns array containing property of objects. taken from class demo code.
+function userArray(property) {
+  var answer = [];
+  for (var i = 0; i < allUsers.length; i++) {
+    answer[i] = allUsers[i][property];
+  }
+  return answer;
+}
 // arrange objects in allusers from highest to lowest highscore
 // obtained from https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_object1
 function leaderBoard() {
@@ -79,5 +87,14 @@ firstRow();
 for (i = 0; i < allUsers.length; i++) {
   allUsers[i].render();
 }
-
-
+// creates chart to display results
+var ctx = document.getElementById('resultsChart');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    datasets: [{
+      label: 'Score',
+      data: allUsers[0].allScores,
+    }]
+  }
+});
