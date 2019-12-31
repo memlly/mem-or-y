@@ -13,24 +13,17 @@ function User(userName, loggedIn, allScores) {
   allUsers.push(this);
 }
 // function that returns array containing property of objects for current user
-function currentUserArray(property) {
-  var answer = [];
+function currentUser(property) {
+  var answer = '';
   for (var i = 0; i < allUsers.length; i++) {
     if (allUsers[i].loggedIn === true) {
-      answer[i] = allUsers[i][property];
+      answer = allUsers[i][property];
       return answer;
     }
   }
 }
 
-// function that returns array containing property of objects. taken from class demo code.
-function userArray(property) {
-  var answer = [];
-  for (var i = 0; i < allUsers.length; i++) {
-    answer[i] = allUsers[i][property];
-  }
-  return answer;
-}
+
 // arrange objects in allusers from highest to lowest highscore
 // obtained from https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_object1
 function leaderBoard() {
@@ -43,7 +36,7 @@ function leaderBoard() {
 //   new User(users[i].userName, users[i].loggedIn, users[i].highScore, users[i].allScores);
 // }
 
-new User('Andrew', true, [5,6,4,7,8,6,10]);
+new User('Andrew', true, [5,6,4,7,8,6,10,8,6,5,5,4,4,4,5]);
 new User('robert', false, [3,8,3,6,9,5,34]);
 new User('eugene', false, [7,0,7,4,2,6,7]);
 new User('someone', false, [7,0,1,2,35,32,5]);
@@ -98,15 +91,39 @@ firstRow();
 for (i = 0; i < allUsers.length; i++) {
   allUsers[i].render();
 }
-// creates chart to display results
-var ctx = document.getElementById('resultsChart');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: []
-    datasets: [{
-      label: 'Score',
-      data: allUsers[0].allScores,
-    }]
+
+// creates a label array that is at least 10 numbers long max of length of user scores array
+var dataLabel = [];
+if (currentUser('allScores').length <= 10) {
+  for (i = 1; i <= 10; i++) {
+    dataLabel.push(i);
   }
-});
+} else {
+  for (i = 1; i <= currentUser('allScores').length; i ++) {
+    dataLabel.push(i);
+  }
+}
+// function that returns array containing property of objects. taken from class demo code.
+function userArray(property) {
+  var answer = [];
+  for (var i = 0; i < allUsers.length; i++) {
+    answer[i] = allUsers[i][property];
+  }
+  return answer;
+}
+
+
+
+
+// creates chart to display results
+// var ctx = document.getElementById('resultsChart');
+// var myChart = new Chart(ctx, {
+//   type: 'line',
+//   data: {
+//     labels: []
+//     datasets: [{
+//       label: 'Score',
+//       data: allUsers[0].allScores,
+//     }]
+//   }
+// });
