@@ -12,6 +12,17 @@ function User(userName, loggedIn, allScores) {
   this.highScore = Math.max(...this.allScores);
   allUsers.push(this);
 }
+// function that returns array containing property of objects for current user
+function currentUserArray(property) {
+  var answer = [];
+  for (var i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].loggedIn === true) {
+      answer[i] = allUsers[i][property];
+      return answer;
+    }
+  }
+}
+
 // function that returns array containing property of objects. taken from class demo code.
 function userArray(property) {
   var answer = [];
@@ -92,6 +103,7 @@ var ctx = document.getElementById('resultsChart');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
+    labels: []
     datasets: [{
       label: 'Score',
       data: allUsers[0].allScores,
