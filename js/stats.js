@@ -34,11 +34,20 @@ function leaderBoard() {
 // for (var i = 0; i < users.length; i ++) {
 //   new User(users[i].userName, users[i].loggedIn, users[i].highScore, users[i].allScores);
 // }
-
+// Dummy user profiles for now
 new User('Andrew', true, [5,6,4,4,5]);
 new User('robert', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
 new User('eugene', false, [7,0,7,4,2 ,6 ,7]);
 new User('someone', false,[7,0,1,2,35,32,5]);
+new User('joe', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
+new User('john', false, [7,0,7,4,2 ,6 ,7]);
+new User('someoneelse', false,[7,0,1,2,35,32,5]);
+new User('harlen', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
+new User('nelrah', false, [7,0,7,4,2 ,6 ,7]);
+new User('soddsfkjf', false,[7,0,1,2,35,32,5]);
+new User('angela', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
+new User('olga', false, [7,0,7,4,2 ,6 ,7]);
+new User('noway', false,[7,0,1,2,35,32,5]);
 // sort after objects are instantiated
 leaderBoard();
 
@@ -87,9 +96,13 @@ User.prototype.render = function() {
 // renders first row
 firstRow();
 // loop through 10 users and display them in leaderboard
+
 for (i = 0; i < allUsers.length; i++) {
-  allUsers[i].render();
+  if (i < 10) {
+    allUsers[i].render();
+  }
 }
+
 
 // creates a label array that is at least 10 numbers long max of length of user scores array
 var dataLabel = [];
