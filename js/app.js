@@ -68,4 +68,19 @@ for (let i = 0; i < 4; i++) {
 document.getElementById('game-start').addEventListener('click', function() {
   initSequence();
   document.getElementById('game-start').classList.add('hidden');
+  document.getElementById('card-container').style.paddingTop = '5.6rem';
+});
+
+var cardClick = [].slice.call(document.getElementsByClassName('color-card'));
+
+cardClick.forEach(function(element) {
+  element.addEventListener('mouseenter', function() {
+    element.style.cursor = 'pointer';
+  });
+  element.addEventListener('mouseenter', function() {
+    element.style.backgroundColor = 'yellow';
+  });
+  element.addEventListener('mouseleave', function() {
+    element.style.backgroundColor = 'blue';
+  });
 });
