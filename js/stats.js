@@ -111,9 +111,17 @@ function userArray(property) {
   }
   return answer;
 }
-
-
-
+// creates an array of average score per session
+var avgArray = [];
+for (i = 0; i < allUsers.length; i++) {
+  for (var j = 0; j < allUsers[i].allScores.length; j++) {
+    if (!avgArray[j]) {
+      avgArray[j] = (allUsers[i].allScores[j] / allUsers.length);
+    } else {
+      avgArray[j] += (allUsers[i].allScores[j] / allUsers.length);
+    }
+  }
+}
 
 // creates chart to display results
 var ctx = document.getElementById('resultsChart');
