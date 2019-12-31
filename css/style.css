@@ -8,22 +8,25 @@ header {
   overflow: hidden;
   background-color: gray;
 }
-
 header a {
   float: left;
   text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  color: black;
   font-size: 18px;
   font-family: 'Courier New', monospace;
+  padding: 12px;
 }
-
+a {
+  text-decoration: none;
+  color: rgb(78, 183, 248);
+  font-weight: bolder;
+}
 .header-right {
   float: right;
   line-height: 25px;
 }
-
+body {
+  background-color: lightslategray;
+}
 .logo {
   font-size: 24px;
   font-weight: bolder;
@@ -34,12 +37,10 @@ header a {
 .memy {
   color: rgb(78, 183, 248);
 }
-header > div > a {
-  color: rgb(78, 183, 248);
-  font-weight: bolder;
+.pipes {
+  color: #000;
 }
-
-header a:hover {
+a:hover {
   background-color: #ddd;
   color: black;
   border-radius: 5px;
@@ -99,11 +100,17 @@ header a:hover {
 /* Global Footer Styling */
 /*************************/
 footer {
-  border-top: solid 1px black;
-  padding: 30px;
-  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+  background-color: gray;
   text-align: center;
+  border-top: 1px #000 solid;
 }
+footer a {
+  padding: 5px;
+}x
 
 /*********************************/
 /* Global "hidden" Class Styling */
