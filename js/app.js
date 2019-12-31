@@ -38,21 +38,22 @@ function initSequence() {
   for (let i = 0; i < colorCards.length; i++) {
     cardSequence.push(Math.floor(Math.random() * colorCards.length));
   }
-  cardSequence.forEach(performSequence);
+  performSequence();
 }
 
 // Declare function that flashes Card elements in sequence.
-function performSequence(sequenceIndex) {
-  for (let i = 0; i < colorCards.length; i++) {
+function performSequence() {
+  for (let i = 0; i < cardSequence.length; i++) {
+    let timer = i;
+    let cardIndex = cardSequence[i];
+    let cardID = document.getElementById(colorCards[cardIndex].index);
     setTimeout(function() {
-      let cardID = document.getElementById(colorCards[i].index);
-      if (colorCards[i].index === sequenceIndex) {
-        cardID.style.backgroundColor = 'yellow';
-      }
+      console.log(cardIndex);
+      cardID.style.backgroundColor = 'yellow';
       setTimeout(function() {
         cardID.style.backgroundColor = 'blue';
-      }, 1000);
-    }, 1000);
+      }, 500);
+    }, 1000 * (timer + 1));
   }
 }
 
@@ -64,4 +65,8 @@ for (let i = 0; i < 4; i++) {
   new Card(i).render();
 }
 
-initSequence();
+// Declare event listener for the START button.
+document.getElementById('game-start').addEventListener('click', function() {
+  initSequence();
+  document.getElementById('game-start').classList.add('hidden');
+});
