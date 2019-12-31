@@ -3,7 +3,6 @@
 var users = JSON.parse(localStorage.getItem('users'));
 // Declare a user profile array to fill
 var allUsers = [];
-
 // Declare constructor for user instances
 function User(userName, loggedIn, allScores) {
   this.userName = userName;
@@ -37,9 +36,9 @@ function leaderBoard() {
 // }
 
 new User('Andrew', true, [5,6,4,4,5]);
-new User('robert', false, [3,8,3,6,9,5,34,5,6,7,8]);
-new User('eugene', false, [7,0,7,4,2,6,7]);
-new User('someone', false, [7,0,1,2,35,32,5]);
+new User('robert', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
+new User('eugene', false, [7,0,7,4,2 ,6 ,7]);
+new User('someone', false,[7,0,1,2,35,32,5]);
 // sort after objects are instantiated
 leaderBoard();
 
@@ -111,12 +110,22 @@ function userArray(property) {
   }
   return answer;
 }
+// create variable that contains scatter plot objects
+var allpoints = [];
+// declare constructor for scatter plot objects
+function Point(x,y) {
+  this.x = x;
+  this.y = y;
+  allpoints.push(this);
+}
 // creates an array of average score per session
+// creates new instances of scatter points
 var avgArray = [];
 for (i = 0; i < dataLabel.length; i++) {
   var counter = 0;
   for (var j = 0; j < allUsers.length; j++) {
     if (allUsers[j].allScores[i]) {
+      new Point(dataLabel[i], allUsers[j].allScores[i]);
       if (!avgArray[i]) {
         avgArray[i] = allUsers[j].allScores[i];
       } else {
@@ -127,19 +136,23 @@ for (i = 0; i < dataLabel.length; i++) {
   }
   avgArray[i] /= counter;
 }
-
 // creates chart to display results
-// var ctx = document.getElementById('resultsChart');
-// var myChart = new Chart(ctx, {
-//   type: 'line',
-//   data: {
-//     labels: dataLabel,
-//     datasets: [{
-//       label: currentUser('userName'),
-//       data: currentUser('allScores')
-//     }, {
-//       label: 'Average Score',
-//       data: 
-//     }]
-//   }
-// });
+var ctx = document.getElementById('resultsChart');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: dataLabel,
+    datasets: [{
+      label: currentUser('userName'),
+      data: currentUser('allScores')
+    }, {
+      type: 'line',
+      label: 'Average Score',
+      data: avgArray
+    }, {
+      type: 'scatter',
+      data: allpoints,
+      label: 'All Scores'
+    }],
+  }
+});
