@@ -45,3 +45,7 @@ table tr:first-child {
   font-weight: bold;
   font-size: 18px;
 }
+.chart {
+  width: 800px;
+  margin: auto;
+}

@@ -116,14 +116,14 @@ function userArray(property) {
 
 
 // creates chart to display results
-// var ctx = document.getElementById('resultsChart');
-// var myChart = new Chart(ctx, {
-//   type: 'line',
-//   data: {
-//     labels: []
-//     datasets: [{
-//       label: 'Score',
-//       data: allUsers[0].allScores,
-//     }]
-//   }
-// });
+var ctx = document.getElementById('resultsChart');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: dataLabel,
+    datasets: [{
+      label: currentUser('userName'),
+      data: currentUser('allScores')
+    }]
+  }
+});
