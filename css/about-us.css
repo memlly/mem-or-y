@@ -6,7 +6,8 @@ h1 {
 /* .benefits section */
 .benefits {
   max-width: 50%;
-  margin: 50px auto 0;
+  margin: 50px auto;
+  text-align: center;
 }
 li {
   text-align: center;
@@ -17,7 +18,6 @@ p {
   margin: 20px 0;
 }
 .benefits {
-  text-align: center;
 }
 ul {
   display: inline-block;
@@ -87,12 +87,17 @@ img {
 #dev1:hover .front {
   transition: all 0.6s;
   transform: translateX(70px) 
-  translateY(175px) scale(4);
+    translateY(175px) scale(4);
 }
 #dev2:hover .front {
   transition: all 0.6s;
   transform: translateX(-100px) 
-  translateY(70px) scale(1.95);
+    translateY(70px) scale(1.95);
+}
+#dev3:hover .front {
+  transition: all 0.6s;
+  transform: translateX(161px) 
+    translateY(220px) scale(2.2);
 }
 label:not(:hover) .front {
   transition: 0.6s;
@@ -106,16 +111,15 @@ input {
 }
 
 /* footer section */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+
 a {
   text-decoration: none;
   font-weight: bolder;
-  color: #000;
+  color: rgb(78, 183, 248);
+  padding: 5px;
 }
 footer a:hover {
   background-color: #ddd;
+  color: #000;
+  border-radius: 5px;
 }
