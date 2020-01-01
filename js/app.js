@@ -12,6 +12,7 @@ function toggleGame() {
 
   document.getElementById('game-info').classList.toggle('hidden');
   document.getElementById('game-display').classList.toggle('hidden');
+  document.getElementById('user-score').classList.toggle('hidden');
 }
 
 /*********************************/
@@ -61,6 +62,9 @@ function initSequence() {
 
 // Declare function that flashes Card elements in sequence.
 function performSequence() {
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].style.backgroundColor = 'blue';
+  }
   for (let i = 0; i < cardSequence.length; i++) {
     let timer = i;
     let cardIndex = cardSequence[i];
@@ -106,6 +110,9 @@ function clickCompare(event) {
         cards[i].style.backgroundColor = 'green';
       }
     }, 500);
+    setTimeout(function() {
+      successResult();
+    }, 100);
   }
 }
 
@@ -116,15 +123,52 @@ function clickCompare(event) {
 // Declare variable to tally current round.
 let roundCount = 0;
 
+// Declare function to continue on round success.
+function successResult() {
+  var passScore = document.getElementById('pass-score');
+  var runningScore = document.getElementById('running-score');
+  passScore.textContent = roundCount;
+  runningScore.textContent = roundCount;
+  document.getElementById('game-pass').classList.toggle('hidden');
+  cardSequence.push(Math.floor(Math.random() * colorCards.length));
+  clickCount = 0;
+  clickedCards = [];
+}
+
 // Declare function to update score upon failure.
 function failResult() {
   var failScore = document.getElementById('fail-score');
   failScore.textContent = roundCount;
+  document.getElementById('game-fail').classList.toggle('hidden');
+  // eslint-disable-next-line no-undef
+  for (let i = 0; i < allUsers.length; i++) {
+    // eslint-disable-next-line no-undef
+    if (allUsers[i].loggedIn === true) {
+      // eslint-disable-next-line no-undef
+      let currentUser = allUsers[i];
+      currentUser.allScores.push(roundCount);
+    }
+  }
+  // eslint-disable-next-line no-undef
+  localStorage.setItem('users', JSON.stringify(allUsers));
+  clickCount = 0;
+  clickedCards = [];
+}
+
+// Declare function to play again on failure.
+function playAgain() {
+  if (localStorage.getItem('reload')) {
+    toggleGame();
+    localStorage.removeItem('reload');
+  }
 }
 
 /***********************************************/
 /* Functions & Data Related To Event Listeners */
 /***********************************************/
+
+// Declare event listener on page load.
+window.addEventListener('load', playAgain);
 
 // Declare event listener for the game / instructions button.
 document.getElementById('game-btn').addEventListener('click', toggleGame);
@@ -134,6 +178,18 @@ document.getElementById('game-start').addEventListener('click', function() {
   initSequence();
   document.getElementById('game-start').classList.add('hidden');
   document.getElementById('card-container').style.paddingTop = '5.6rem';
+});
+
+// Declare event listener for the continue button.
+document.getElementById('continue-game').addEventListener('click', function() {
+  document.getElementById('game-pass').classList.toggle('hidden');
+  performSequence();
+});
+
+// Declare event listener for the 'Play Again' button.
+document.getElementById('play-again').addEventListener('click', function() {
+  localStorage.setItem('reload', 'true');
+  location.reload();
 });
 
 // Declare functions for Card event handlers.
