@@ -38,6 +38,7 @@
           <button id="logout-btn">Log Out</button>
         </div>
         <div id="game-btn">Play Game</div>
+        <div id="user-score" class="hidden">Score: <span id="running-score">0</span></div>
       </div>
       <div id="game-info">
         <h1>Boost Your Memory And Have Fun!</h1>
@@ -59,13 +60,20 @@
       <div id="game-display" class="hidden">
         <div id="game-start">START</div>
         <div id="card-container"></div>
-        <div id="game-fail">
-          <h2>Wrong, dumbass!</h2>
-          <p>Can you even remember your own name?</p>
+        <div id="game-pass" class="hidden">
+          <h2>Good Job!</h2>
+          <p>That wasn't so bad...</p>
+          <p>Your current score is <span id="pass-score"></span>.</p>
+          <div id="continue-game">Continue</div>
+        </div>
+        <div id="game-fail" class="hidden">
+          <h2>You Have Failed Yourself</h2>
+          <p>Good thing you won't remember...</p>
           <p>Your score was <span id="fail-score"></span>.</p>
-          <p>Play Again?</p>
-          <div id="play-again"></div>
-          <a href="stats.html">Results</a>
+          <div class="fail-links">
+            <div id="play-again">Play Again</div>
+            <a href="stats.html">Results</a>
+          </div>
         </div>
       </div>
     </main>
