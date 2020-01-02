@@ -95,16 +95,17 @@ for (i = 0; i < allUsers.length; i++) {
   }
 }
 // creates a label array that is at least 10 numbers long, max is length of user scores array
-var dataLabel = [];
-if (!currentUser('allScores')) {
+var dataLabel = [1,2,3,4,5,6,7,8,9,10];
+if (currentUser('allScores') === 'None') {
   for (i = 1; i <= 10; i++) {
     dataLabel.push(i);
   }
 } else {
-  for (i = 1; i <= currentUser('allScores').length; i ++) {
+  for (i = 1; i <= currentUser('allScores').length; i++) {
     dataLabel.push(i);
   }
 }
+
 // create variable that contains scatter plot objects
 var allpoints = [];
 // declare constructor for scatter plot objects
@@ -131,6 +132,7 @@ for (i = 0; i < dataLabel.length; i++) {
   }
   avgArray[i] /= counter;
 }
+
 // creates chart to display results
 var ctx = document.getElementById('resultsChart');
 var myChart = new Chart(ctx, {
@@ -145,18 +147,18 @@ var myChart = new Chart(ctx, {
       borderColor: 'yellow',
       pointRadius: 2
     },{
-      label: currentUser('userName'),
-      data: currentUser('allScores'),
-      fill: false,
-      pointRadius: 0,
-      borderColor: 'yellow'
-    },{
       type: 'line',
       label: 'Average Score',
       data: avgArray,
       pointRadius: 0,
       fill: false,
       borderColor: 'rgb(78, 183, 248)'
+    },{
+      label: currentUser('userName'),
+      data: currentUser('allScores'),
+      fill: false,
+      pointRadius: 0,
+      borderColor: 'yellow'
     }],
   },
   options: {
