@@ -102,3 +102,24 @@ function loadPage() {
 }
 
 loadPage();
+
+/**************************************************************************/
+/* Function to add random scores to active user until they have 10 scores */
+/**************************************************************************/
+
+// eslint-disable-next-line no-unused-vars
+function addScores () {
+  var scoreLength = 0;
+  for (var i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].loggedIn === true) {
+      scoreLength = allUsers[i].allScores.length;
+      for (var j = 0; j < 10 - scoreLength; j++) {
+        allUsers[i].allScores.push(Math.round(Math.random() *
+        ((8 + (allUsers[i].allScores.length * 2)) -
+        (0 + (allUsers[i].allScores.length * 2))) +
+        (0 + (allUsers[i].allScores.length * 2))));
+      }
+    }
+  }
+  localStorage.setItem('users', JSON.stringify(allUsers));
+}
