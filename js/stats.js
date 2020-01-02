@@ -190,3 +190,29 @@ var myChart = new Chart(ctx, {
     }
 }
 });
+
+/****************************************************/
+/* Functions to create test users & populate scores */
+/****************************************************/
+function randomScores() {
+  var minMaxOffset = 0;
+  var testScoreArray = [];
+  for (var i = 0; i < 10; i++) {
+    testScoreArray[i] = Math.round(Math.random() * ((8 + minMaxOffset) - (0 + minMaxOffset)) + (0 + minMaxOffset));
+    minMaxOffset += 2;
+  }
+  return testScoreArray;
+}
+
+function testUsers() {
+  new User('Michelle', false, randomScores());
+  new User('Lillian', false, randomScores());
+  new User('Gina', false, randomScores());
+  new User('Harlen', false, randomScores());
+  new User('Blandine', false, randomScores());
+  new User('Patrick', false, randomScores());
+  new User('Ken', false, randomScores());
+  new User('Eyob', false, randomScores());
+  new User('Matthew', false, randomScores());
+  localStorage.setItem('users', JSON.stringify(allUsers));
+}
