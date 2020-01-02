@@ -99,14 +99,6 @@ if (currentUser('allScores').length <= 10) {
     dataLabel.push(i);
   }
 }
-// function that returns array containing property of objects. taken from class demo code.
-function userArray(property) {
-  var answer = [];
-  for (var i = 0; i < allUsers.length; i++) {
-    answer[i] = allUsers[i][property];
-  }
-  return answer;
-}
 // create variable that contains scatter plot objects
 var allpoints = [];
 // declare constructor for scatter plot objects
