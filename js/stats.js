@@ -62,8 +62,9 @@ function firstRow() {
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
 }
-// Creates a method that renders the table
+// vairable that shows rank on leaderboard
 var place = 1;
+// Creates a method that renders the table
 User.prototype.render = function() {
   var userRow = document.createElement('tr');
   var userData = document.createElement('td');
@@ -77,7 +78,7 @@ User.prototype.render = function() {
   userData.textContent = `${this.highScore}`;
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
-}
+};
 // renders first row
 firstRow();
 // loop through 10 users and display them in leaderboard
