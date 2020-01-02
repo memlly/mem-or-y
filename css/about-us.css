@@ -39,7 +39,7 @@ p {
 ul {
   margin: 0 auto;
 }
-ul > li {
+.benefits ul > li {
   background: url(../img/brainbulb-sm.png) no-repeat 25% center;
   padding: 20px 0 20px 34%;
 }
@@ -134,4 +134,14 @@ input {
 }
 :checked + .front-card {
   transform: rotateY(-180deg);
+}
+.bio {
+  margin: 0 74px;
+  width: 250px;
+}
+.bio p {
+  text-indent: 0px;
+}
+.bio ul {
+  margin: -20px 0 0 20px;
 }
