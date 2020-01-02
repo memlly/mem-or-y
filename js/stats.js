@@ -186,3 +186,20 @@ var myChart = new Chart(ctx, {
     }
 }
 });
+
+/****************************************************/
+/* Functions to create test users & populate scores */
+/****************************************************/
+function randomScores() {
+  var minMaxOffset = 0;
+  var testScoreArray = [];
+  for (var i = 1; i < 10; i++) {
+    testScoreArray[i] = Math.round(Math.random() * ((5 + minMaxOffset) - (2 + minMaxOffset)) + (2 + minMaxOffset));
+    minMaxOffset += 2;
+  }
+  return testScoreArray;
+}
+
+function testUsers() {
+  new User('Michelle', false, randomScores());
+}
