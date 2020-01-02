@@ -29,24 +29,9 @@ function leaderBoard() {
   });
 }
 // Create user instances
-// for (var i = 0; i < users.length; i ++) {
-//   new User(users[i].userName, users[i].loggedIn, users[i].highScore, users[i].allScores);
-// }
-// Dummy user profiles for now, delete later
-new User('Andrew', true, [5,6,4,4,5]);
-new User('robert', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('eugene', false, [7,0,7,4,2 ,6 ,7]);
-new User('someone', false,[7,0,1,2,35,32,5]);
-new User('joe', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('john', false, [7,0,7,4,2 ,6 ,7]);
-new User('someoneelse', false,[7,0,1,2,35,32,5]);
-new User('harlen', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('nelrah', false, [7,0,7,4,2 ,6 ,7]);
-new User('soddsfkjf', false,[7,0,1,2,35,32,5]);
-new User('angela', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('olga', false, [7,0,7,4,2 ,6 ,7]);
-new User('noway', false,[7,0,1,2,35,32,5]);
-// sort after objects are instantiated
+for (var i = 0; i < users.length; i++) {
+  new User(users[i].userName, users[i].loggedIn, users[i].allScores);
+}
 leaderBoard();
 // finds which user is current user and displays name and high score
 for (var i = 0; i < allUsers.length; i ++) {
