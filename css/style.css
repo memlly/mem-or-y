@@ -93,16 +93,33 @@ a:hover {
 
 #logout-form {
   float: left;
-  margin: 1rem 2rem;
+  margin: auto 2rem;
   font-size: 1.2rem;
 }
 
 #logout-form p {
   display: inline;
+  color: yellow;
+}
+
+#logged-in-user {
+  color: black;
 }
 
 #logout-form button {
-  padding: 0.2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(78, 183, 248);
+  background-color: grey;
+  border: none;
+}
+
+#logout-form button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: #ddd;
+  border-radius: 5px;
 }
 
 #game-btn {
