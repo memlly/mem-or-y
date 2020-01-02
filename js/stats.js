@@ -200,6 +200,7 @@ function randomScores() {
   return testScoreArray;
 }
 
+// eslint-disable-next-line no-unused-vars
 function testUsers() {
   new User('Michelle', false, randomScores());
   new User('Lillian', false, randomScores());
