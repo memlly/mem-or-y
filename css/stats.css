@@ -5,15 +5,17 @@
   border: solid 1px black;
   padding: 10px 5px;
   overflow: hidden;
-  margin: 10px auto 10px auto;
+  margin: 20px auto 10px auto;
   background-color: gray;
+  box-shadow: 10px 10px 10px rgb(78, 183, 248);
+
 }
 .user-bar h1 {
   float: left;
   text-align: center;
   padding: 12px 24px 12px 24px;
   text-decoration: none;
-  color: rgb(78, 183, 248);
+  color: yellow;
   font-size: 24px;
   font-weight: bold;
 }
@@ -22,24 +24,30 @@
   line-height: 25px;  
 }
 h1 > span {
-  color: yellow;
+  color: black;
 }
 h2 {
   margin-left: 304px;
-  color: rgb(78, 183, 248);
-  font-size: 20px; 
+  margin-top: 20px;
+  color: yellow;
+  font-size: 24px; 
   font-weight: bold;
+  text-decoration: underline;
 }
 table {
   width: 50%;
   border: solid 1px black;
-  margin: 5px auto 30px auto;
-  color: yellow;
+  margin: 15px auto 30px auto;
+  color: black;
+  font-weight: bold;
   text-align: center;
   background-color: gray;
+  box-shadow: -1px 1px 5px 9px rgb(78, 183, 248);
+
 }
 table tr:first-child {
-  color: rgb(78, 183, 248);
+  text-decoration: underline;
+  color: yellow;
   font-weight: bold;
   font-size: 18px;
 }
@@ -48,4 +56,6 @@ table tr:first-child {
   margin: auto;
   background-color: gray;
   border: black 1px solid;
+  margin-bottom: 65px;
+  box-shadow: 10px 10px 10px rgb(78, 183, 248);
 }

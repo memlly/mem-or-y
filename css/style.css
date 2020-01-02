@@ -50,7 +50,12 @@ a:hover {
 /* Global User Bar Styling */
 /***************************/
 .user-bar {
+  height: 3.1rem;
   width: 90%;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  background-color: grey;
+  border: 1px solid black;
 }
 
 #login-form {
@@ -87,13 +92,27 @@ a:hover {
   left: 50%;
   transform: translateX(-60%);
   margin: auto 1rem;
-  padding: 1.2rem;
+  padding: 1rem;
   font-size: 1.2rem;
+  color: rgb(78, 183, 248);
+  font-weight: bold;
 }
 
 #game-btn:hover {
   cursor: pointer;
-  background-color: grey;
+  color: black;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+#user-score {
+  float: right;
+  margin: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+#running-score {
+  color: yellow;
 }
 
 /*************************/

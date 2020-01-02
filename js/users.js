@@ -7,11 +7,9 @@
 var allUsers = [];
 
 // Declare constructor for User instances..
-function User(userName = '', loggedIn = false, highScore = 0, allScores = []) {
+function User(userName = '', loggedIn = false, allScores = []) {
   this.userName = userName;
   this.loggedIn = loggedIn;
-  // TODO: highScore is not needed. Delete all instances.
-  this.highScore = highScore;
   this.allScores = allScores;
   allUsers.push(this);
 }
@@ -85,7 +83,6 @@ function loadPage() {
       new User(
         parsedUsers[i].userName,
         parsedUsers[i].loggedIn,
-        parsedUsers[i].highScore,
         parsedUsers[i].allScores
       );
     }
