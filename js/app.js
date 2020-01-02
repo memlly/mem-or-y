@@ -247,5 +247,3 @@ function removeCardClicks() {
     card.removeEventListener('click', clickMouse);
   });
 }
-
-testUsers();
