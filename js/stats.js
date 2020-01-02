@@ -62,8 +62,9 @@ function firstRow() {
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
 }
-// Creates a method that renders the table
+// vairable that shows rank on leaderboard
 var place = 1;
+// Creates a method that renders the table
 User.prototype.render = function() {
   var userRow = document.createElement('tr');
   var userData = document.createElement('td');
@@ -77,7 +78,7 @@ User.prototype.render = function() {
   userData.textContent = `${this.highScore}`;
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
-}
+};
 // renders first row
 firstRow();
 // loop through 10 users and display them in leaderboard
@@ -98,14 +99,6 @@ if (currentUser('allScores').length <= 10) {
   for (i = 1; i <= currentUser('allScores').length; i ++) {
     dataLabel.push(i);
   }
-}
-// function that returns array containing property of objects. taken from class demo code.
-function userArray(property) {
-  var answer = [];
-  for (var i = 0; i < allUsers.length; i++) {
-    answer[i] = allUsers[i][property];
-  }
-  return answer;
 }
 // create variable that contains scatter plot objects
 var allpoints = [];
