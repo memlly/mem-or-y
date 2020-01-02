@@ -18,6 +18,8 @@ function currentUser(property) {
     if (allUsers[i].loggedIn === true) {
       answer = allUsers[i][property];
       return answer;
+    } else {
+      answer = 'None';
     }
   }
 }
@@ -35,15 +37,18 @@ for (var i = 0; i < users.length; i++) {
 leaderBoard();
 // finds which user is current user and displays name and high score
 for (i = 0; i < allUsers.length; i ++) {
-  if (allUsers[i].loggedIn === true) {
-    var userNameEl = document.getElementsByClassName('user-name');
-    userNameEl[0].textContent = allUsers[i].userName;
-    var userScoreEl = document.getElementsByClassName('score');
+  var userNameEl = document.getElementsByClassName('user-name');
+  var userScoreEl = document.getElementsByClassName('score');
+  if (allUsers[i].loggedIn === true) {   
+    userNameEl[0].textContent = allUsers[i].userName;    
     if (allUsers[i].highScore > 0) {
       userScoreEl[0].textContent = allUsers[i].highScore;
     } else {
       userScoreEl[0].textContent = 'None';
     }
+  } else {
+    userNameEl[0].textContent = 'None';
+    userScoreEl[0].textContent = 'None';
   }
 }
 // Assigns a variable to the table
@@ -91,7 +96,7 @@ for (i = 0; i < allUsers.length; i++) {
 }
 // creates a label array that is at least 10 numbers long, max is length of user scores array
 var dataLabel = [];
-if (currentUser('allScores').length <= 10) {
+if (!currentUser('allScores')) {
   for (i = 1; i <= 10; i++) {
     dataLabel.push(i);
   }
