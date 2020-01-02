@@ -34,12 +34,16 @@ for (var i = 0; i < users.length; i++) {
 }
 leaderBoard();
 // finds which user is current user and displays name and high score
-for (var i = 0; i < allUsers.length; i ++) {
+for (i = 0; i < allUsers.length; i ++) {
   if (allUsers[i].loggedIn === true) {
     var userNameEl = document.getElementsByClassName('user-name');
     userNameEl[0].textContent = allUsers[i].userName;
     var userScoreEl = document.getElementsByClassName('score');
-    userScoreEl[0].textContent = allUsers[i].highScore;
+    if (allUsers[i].highScore > 0) {
+      userScoreEl[0].textContent = allUsers[i].highScore;
+    } else {
+      userScoreEl[0].textContent = 'None';
+    }
   }
 }
 // Assigns a variable to the table
@@ -78,8 +82,10 @@ User.prototype.render = function() {
 firstRow();
 // loop through 10 users and display them in leaderboard
 for (i = 0; i < allUsers.length; i++) {
-  if (i < 10) {
-    allUsers[i].render();
+  if (allUsers[i].highScore > 0) {
+    if (i < 10) {
+      allUsers[i].render();
+    }
   }
 }
 // creates a label array that is at least 10 numbers long, max is length of user scores array
