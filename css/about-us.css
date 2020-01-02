@@ -41,7 +41,7 @@ ul {
 }
 ul > li {
   background: url(../img/brainbulb-sm.png) no-repeat 25% center;
-  padding: 10px 0 10px 34%;
+  padding: 20px 0 20px 34%;
 }
 li {
   text-align: left;
