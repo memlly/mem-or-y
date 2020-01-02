@@ -18,6 +18,8 @@ function currentUser(property) {
     if (allUsers[i].loggedIn === true) {
       answer = allUsers[i][property];
       return answer;
+    } else {
+      answer = 'None';
     }
   }
 }
@@ -34,12 +36,19 @@ for (var i = 0; i < users.length; i++) {
 }
 leaderBoard();
 // finds which user is current user and displays name and high score
-for (var i = 0; i < allUsers.length; i ++) {
-  if (allUsers[i].loggedIn === true) {
-    var userNameEl = document.getElementsByClassName('user-name');
-    userNameEl[0].textContent = allUsers[i].userName;
-    var userScoreEl = document.getElementsByClassName('score');
-    userScoreEl[0].textContent = allUsers[i].highScore;
+for (i = 0; i < allUsers.length; i ++) {
+  var userNameEl = document.getElementsByClassName('user-name');
+  var userScoreEl = document.getElementsByClassName('score');
+  if (allUsers[i].loggedIn === true) {   
+    userNameEl[0].textContent = allUsers[i].userName;    
+    if (allUsers[i].highScore > 0) {
+      userScoreEl[0].textContent = allUsers[i].highScore;
+    } else {
+      userScoreEl[0].textContent = 'None';
+    }
+  } else {
+    userNameEl[0].textContent = 'None';
+    userScoreEl[0].textContent = 'None';
   }
 }
 // Assigns a variable to the table
@@ -58,8 +67,9 @@ function firstRow() {
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
 }
-// Creates a method that renders the table
+// vairable that shows rank on leaderboard
 var place = 1;
+// Creates a method that renders the table
 User.prototype.render = function() {
   var userRow = document.createElement('tr');
   var userData = document.createElement('td');
@@ -73,18 +83,20 @@ User.prototype.render = function() {
   userData.textContent = `${this.highScore}`;
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
-}
+};
 // renders first row
 firstRow();
 // loop through 10 users and display them in leaderboard
 for (i = 0; i < allUsers.length; i++) {
-  if (i < 10) {
-    allUsers[i].render();
+  if (allUsers[i].highScore > 0) {
+    if (i < 10) {
+      allUsers[i].render();
+    }
   }
 }
 // creates a label array that is at least 10 numbers long, max is length of user scores array
 var dataLabel = [];
-if (currentUser('allScores').length <= 10) {
+if (!currentUser('allScores')) {
   for (i = 1; i <= 10; i++) {
     dataLabel.push(i);
   }
@@ -92,14 +104,6 @@ if (currentUser('allScores').length <= 10) {
   for (i = 1; i <= currentUser('allScores').length; i ++) {
     dataLabel.push(i);
   }
-}
-// function that returns array containing property of objects. taken from class demo code.
-function userArray(property) {
-  var answer = [];
-  for (var i = 0; i < allUsers.length; i++) {
-    answer[i] = allUsers[i][property];
-  }
-  return answer;
 }
 // create variable that contains scatter plot objects
 var allpoints = [];
@@ -186,3 +190,29 @@ var myChart = new Chart(ctx, {
     }
 }
 });
+
+/****************************************************/
+/* Functions to create test users & populate scores */
+/****************************************************/
+function randomScores() {
+  var minMaxOffset = 0;
+  var testScoreArray = [];
+  for (var i = 0; i < 10; i++) {
+    testScoreArray[i] = Math.round(Math.random() * ((8 + minMaxOffset) - (0 + minMaxOffset)) + (0 + minMaxOffset));
+    minMaxOffset += 2;
+  }
+  return testScoreArray;
+}
+
+function testUsers() {
+  new User('Michelle', false, randomScores());
+  new User('Lillian', false, randomScores());
+  new User('Gina', false, randomScores());
+  new User('Harlen', false, randomScores());
+  new User('Blandine', false, randomScores());
+  new User('Patrick', false, randomScores());
+  new User('Ken', false, randomScores());
+  new User('Eyob', false, randomScores());
+  new User('Matthew', false, randomScores());
+  localStorage.setItem('users', JSON.stringify(allUsers));
+}
