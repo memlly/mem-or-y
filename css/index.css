@@ -67,9 +67,26 @@ p {
   height: 6rem;
   margin: 2rem 1rem;
   border-radius: 50%;
+  /* background-color: blue; */
+}
+.data-id0 {
+  background-color: red;
+}
+.data-id1 {
+  background-color: green;
+}
+.data-id2 {
+  background-color: yellow;
+}
+.data-id3 {
   background-color: blue;
 }
-
+.darkgoldenrod {
+  background-color: darkgoldenrod;
+}
+.cyan {
+  background-color: cyan;
+}
 #game-pass {
   position: absolute;
   top: 50%;
