@@ -14,6 +14,7 @@ section {
   max-width: 40%;
   min-width: 500px;
   margin: 50px auto;
+  padding: 60px;
   text-align: center;
 }
 p {

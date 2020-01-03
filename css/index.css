@@ -13,6 +13,7 @@ body {
   clear: both;
   width: 66%;
   margin: auto;
+  padding: 20px 0 40px;
 }
 
 h1 {
@@ -39,14 +40,14 @@ p {
 
 #game-start {
   position: relative;
-  top: 1.5rem;
+  top: 20px;
   width: fit-content;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   color: #030552;
   padding: 1.2rem;
-  margin: 2rem auto;
+  margin: 33px auto;
 }
 
 #game-start:hover {
