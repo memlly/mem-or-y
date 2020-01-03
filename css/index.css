@@ -18,11 +18,16 @@ body {
 /*****************************/
 #game-info {
   clear: both;
+  width: 66%;
+  margin: auto;
+  background-color: grey;
+  border: 1px solid black;
 }
 
 h1 {
   font-size: 2rem;
   padding: 1rem;
+  color: yellow;
 }
 
 p {

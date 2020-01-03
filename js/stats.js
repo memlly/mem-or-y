@@ -16,8 +16,10 @@ function currentUser(property) {
   var answer = '';
   for (var i = 0; i < allUsers.length; i++) {
     if (allUsers[i].loggedIn === true) {
-      answer = allUsers[i][property];
-      return answer;
+      if (allUsers[i].allScores[0] !== undefined) {
+        answer = allUsers[i][property];
+        return answer;
+      }
     }
   }
 }
@@ -29,32 +31,25 @@ function leaderBoard() {
   });
 }
 // Create user instances
-// for (var i = 0; i < users.length; i ++) {
-//   new User(users[i].userName, users[i].loggedIn, users[i].highScore, users[i].allScores);
-// }
-// Dummy user profiles for now, delete later
-new User('Andrew', true, [5,6,4,4,5]);
-new User('robert', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('eugene', false, [7,0,7,4,2 ,6 ,7]);
-new User('someone', false,[7,0,1,2,35,32,5]);
-new User('joe', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('john', false, [7,0,7,4,2 ,6 ,7]);
-new User('someoneelse', false,[7,0,1,2,35,32,5]);
-new User('harlen', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('nelrah', false, [7,0,7,4,2 ,6 ,7]);
-new User('soddsfkjf', false,[7,0,1,2,35,32,5]);
-new User('angela', false, [3,8,3,6,9 ,5 ,34 ,5,6,7,8]);
-new User('olga', false, [7,0,7,4,2 ,6 ,7]);
-new User('noway', false,[7,0,1,2,35,32,5]);
-// sort after objects are instantiated
+for (var i = 0; i < users.length; i++) {
+  new User(users[i].userName, users[i].loggedIn, users[i].allScores);
+}
 leaderBoard();
 // finds which user is current user and displays name and high score
-for (var i = 0; i < allUsers.length; i ++) {
+for (i = 0; i < allUsers.length; i ++) {
+  var userNameEl = document.getElementsByClassName('user-name');
+  var userScoreEl = document.getElementsByClassName('score');
   if (allUsers[i].loggedIn === true) {
-    var userNameEl = document.getElementsByClassName('user-name');
     userNameEl[0].textContent = allUsers[i].userName;
-    var userScoreEl = document.getElementsByClassName('score');
-    userScoreEl[0].textContent = allUsers[i].highScore;
+    if (allUsers[i].highScore > 0) {
+      userScoreEl[0].textContent = allUsers[i].highScore;
+    } else {
+      userScoreEl[0].textContent = 'None';
+    }
+    break;
+  } else {
+    userNameEl[0].textContent = 'None';
+    userScoreEl[0].textContent = 'None';
   }
 }
 // Assigns a variable to the table
@@ -73,8 +68,9 @@ function firstRow() {
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
 }
-// Creates a method that renders the table
+// vairable that shows rank on leaderboard
 var place = 1;
+// Creates a method that renders the table
 User.prototype.render = function() {
   var userRow = document.createElement('tr');
   var userData = document.createElement('td');
@@ -88,34 +84,29 @@ User.prototype.render = function() {
   userData.textContent = `${this.highScore}`;
   userRow.appendChild(userData);
   tableHolder.appendChild(userRow);
-}
+};
 // renders first row
 firstRow();
 // loop through 10 users and display them in leaderboard
 for (i = 0; i < allUsers.length; i++) {
-  if (i < 10) {
-    allUsers[i].render();
+  if (allUsers[i].highScore > 0) {
+    if (i < 10) {
+      allUsers[i].render();
+    }
   }
 }
 // creates a label array that is at least 10 numbers long, max is length of user scores array
 var dataLabel = [];
-if (currentUser('allScores').length <= 10) {
+if (currentUser('allScores') === undefined) {
   for (i = 1; i <= 10; i++) {
     dataLabel.push(i);
   }
 } else {
-  for (i = 1; i <= currentUser('allScores').length; i ++) {
+  for (i = 1; i <= currentUser('allScores').length; i++) {
     dataLabel.push(i);
   }
 }
-// function that returns array containing property of objects. taken from class demo code.
-function userArray(property) {
-  var answer = [];
-  for (var i = 0; i < allUsers.length; i++) {
-    answer[i] = allUsers[i][property];
-  }
-  return answer;
-}
+
 // create variable that contains scatter plot objects
 var allpoints = [];
 // declare constructor for scatter plot objects
@@ -142,33 +133,39 @@ for (i = 0; i < dataLabel.length; i++) {
   }
   avgArray[i] /= counter;
 }
+// creates dataset for chart
+var dataSets = [{
+  type: 'scatter',
+  data: allpoints,
+  label: 'All Scores',
+  backgroundColor: 'rgb(78, 183, 248)',
+  borderColor: 'yellow',
+  pointRadius: 2
+},{
+  label: currentUser('userName'),
+  data: currentUser('allScores'),
+  fill: false,
+  pointRadius: 0,
+  borderColor: 'yellow',
+},{
+  type: 'line',
+  label: 'Average Score',
+  data: avgArray,
+  pointRadius: 0,
+  fill: false,
+  borderColor: 'rgb(78, 183, 248)'
+}];
+// removes current user dataset if current user has no score history
+if (currentUser('allScores') === undefined) {
+  dataSets.splice(1,1);
+}
 // creates chart to display results
 var ctx = document.getElementById('resultsChart');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: dataLabel,
-    datasets: [{
-      type: 'scatter',
-      data: allpoints,
-      label: 'All Scores',
-      backgroundColor: 'rgb(78, 183, 248)',
-      borderColor: 'yellow',
-      pointRadius: 2
-    },{
-      label: currentUser('userName'),
-      data: currentUser('allScores'),
-      fill: false,
-      pointRadius: 0,
-      borderColor: 'yellow'
-    },{
-      type: 'line',
-      label: 'Average Score',
-      data: avgArray,
-      pointRadius: 0,
-      fill: false,
-      borderColor: 'rgb(78, 183, 248)'
-    }],
+    datasets: dataSets
   },
   options: {
     title: {

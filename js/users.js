@@ -102,3 +102,51 @@ function loadPage() {
 }
 
 loadPage();
+
+/**************************************************************************/
+/* Function to add random scores to active user until they have 10 scores */
+/**************************************************************************/
+
+// eslint-disable-next-line no-unused-vars
+function addScores () {
+  var scoreLength = 0;
+  for (var i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].loggedIn === true) {
+      scoreLength = allUsers[i].allScores.length;
+      for (var j = 0; j < 10 - scoreLength; j++) {
+        allUsers[i].allScores.push(Math.round(Math.random() *
+        ((8 + (allUsers[i].allScores.length * 2)) -
+        (0 + (allUsers[i].allScores.length * 2))) +
+        (0 + (allUsers[i].allScores.length * 2))));
+      }
+    }
+  }
+  localStorage.setItem('users', JSON.stringify(allUsers));
+}
+
+/****************************************************/
+/* Functions to create test users & populate scores */
+/****************************************************/
+function randomScores() {
+  var minMaxOffset = 0;
+  var testScoreArray = [];
+  for (var i = 0; i < 10; i++) {
+    testScoreArray[i] = Math.round(Math.random() * ((8 + minMaxOffset) - (0 + minMaxOffset)) + (0 + minMaxOffset));
+    minMaxOffset += 2;
+  }
+  return testScoreArray;
+}
+
+// eslint-disable-next-line no-unused-vars
+function testUsers() {
+  new User('Michelle', false, randomScores());
+  new User('Lillian', false, randomScores());
+  new User('Gina', false, randomScores());
+  new User('Harlen', false, randomScores());
+  new User('Blandine', false, randomScores());
+  new User('Patrick', false, randomScores());
+  new User('Ken', false, randomScores());
+  new User('Eyob', false, randomScores());
+  new User('Matthew', false, randomScores());
+  localStorage.setItem('users', JSON.stringify(allUsers));
+}
