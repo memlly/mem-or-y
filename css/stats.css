@@ -34,9 +34,11 @@ table {
   color: black;
   font-weight: bold;
   text-align: center;
+  
 }
 td {
   font-size: 18px;
+  padding: 6px 0;
 }
 table tr:first-child {
   text-decoration: underline;
@@ -46,4 +48,5 @@ table tr:first-child {
   width: 800px;
   margin: auto;
   margin-bottom: 65px;
+  padding: 5px;
 }
