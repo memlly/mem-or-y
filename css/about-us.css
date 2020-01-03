@@ -1,6 +1,5 @@
 h1 {
   color: yellow;
-  font-family: 'Courier New', Courier, monospace;
   text-align: center;
   font-size: xx-large;
   font-weight: 600;
@@ -13,13 +12,6 @@ section {
   border: 1px #000 solid;
   box-shadow: 10px 10px 10px #000;
 }
-h4 {
-  font-family: 'Courier New', Courier, monospace;
-  margin-top: 10px;
-  font-size: 20px;
-  color: yellow;
-  font-weight: 600;
-}
 /* .benefits section */
 .benefits {
   max-width: 40%;
@@ -27,9 +19,9 @@ h4 {
   margin: 50px auto;
   text-align: center;
 }
-li {
+/* li {
   text-align: center;
-}
+} */
 p {
   text-indent: 25px;
   text-align: left;
@@ -39,13 +31,13 @@ p {
 ul {
   margin: 0 auto;
 }
-ul > li {
+.benefits ul > li {
   background: url(../img/brainbulb-sm.png) no-repeat 25% center;
   padding: 20px 0 20px 34%;
 }
 li {
   text-align: left;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 /* .developers section */
 .developers {
@@ -53,7 +45,7 @@ li {
   margin: 20px 0;
   display: flex;
 }
-
+/* container for card animation */
 label {
   transform-style: preserve-3d;
   width: 400px;
@@ -72,6 +64,26 @@ label {
 .back-card {
   border-radius: 15%;
 }
+/* dev card bio styling */
+h4 {
+  margin-top: 10px;
+  font-size: 20px;
+  color: yellow;
+  font-weight: 600;
+}
+.bio {
+  margin: -14px 42px 0;
+  width: 315px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+.bio p {
+  text-indent: 0px;
+}
+.bio ul {
+  margin: -20px 0 0 20px;
+}
+/* link icons styling */
 .dev-links {
   position: relative;
   bottom: 0px;
@@ -89,7 +101,8 @@ label {
   margin-left: 150px;
   margin-right: 10px;
 }
-.front-card {
+/* flip card animation */
+.dev-card {
   transform-style: preserve-3d;
   position: relative;
   height: 100%;
@@ -100,17 +113,24 @@ label {
 img {
   width: 100%;
 }
-.front-card div {
+.dev-card div {
   text-align: center;
   position: absolute;
   backface-visibility: hidden;
 }
-.front-card .back-card {
+.dev-card .back-card {
   width: 400px;
   height: 300px;
   background-color: slategrey;
   transform: rotateY(180deg);
 }
+input {
+  display: none;
+}
+:checked + .dev-card {
+  transform: rotateY(-180deg);
+}
+/* dev image hover animation */
 #dev1:hover .front {
   transition: 0.9s;
   transform: translateX(70px) 
@@ -128,10 +148,4 @@ img {
 }
 label:not(:hover) .front {
   transition: 0.6s;
-}
-input {
-  display: none;
-}
-:checked + .front-card {
-  transform: rotateY(-180deg);
 }

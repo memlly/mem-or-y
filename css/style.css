@@ -1,5 +1,5 @@
 body {
-  font-family: 'Courier New', monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /*************************/
@@ -15,12 +15,12 @@ header {
 header a {
   float: left;
   text-align: center;
-  font-size: 18px;
   padding: 12px;
+  font-size: 24px;
 }
 a {
   text-decoration: none;
-  color: rgb(78, 183, 248);
+  color: #030552;
   font-weight: bolder;
 }
 .header-right {
@@ -36,12 +36,6 @@ body {
 }
 .para {
   color: black;
-}
-.memy {
-  color: rgb(78, 183, 248);
-}
-.pipes {
-  color: #000;
 }
 a:hover {
   background-color: #ddd;
@@ -79,7 +73,7 @@ a:hover {
   padding: 1rem;
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(78, 183, 248);
+  color: #030552;
   background-color: grey;
   border: none;
 }
@@ -110,7 +104,7 @@ a:hover {
   padding: 1rem;
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(78, 183, 248);
+  color: #030552;
   background-color: grey;
   border: none;
 }
@@ -130,7 +124,7 @@ a:hover {
   margin: auto 1rem;
   padding: 1rem;
   font-size: 1.2rem;
-  color: rgb(78, 183, 248);
+  color: #030552;
   font-weight: bold;
 }
 
@@ -163,9 +157,11 @@ footer {
   background-color: gray;
   text-align: center;
   border-top: 1px #000 solid;
+  font-size: 18px;
 }
 footer a {
   padding: 5px;
+  font-size: 20px;
 }
 
 /*********************************/
