@@ -16,10 +16,10 @@ function currentUser(property) {
   var answer = '';
   for (var i = 0; i < allUsers.length; i++) {
     if (allUsers[i].loggedIn === true) {
-      answer = allUsers[i][property];
-      return answer;
-    } else {
-      answer = 'None';
+      if (allUsers[i].allScores[0] !== undefined) {
+        answer = allUsers[i][property];
+        return answer;
+      }
     }
   }
 }
@@ -39,13 +39,14 @@ leaderBoard();
 for (i = 0; i < allUsers.length; i ++) {
   var userNameEl = document.getElementsByClassName('user-name');
   var userScoreEl = document.getElementsByClassName('score');
-  if (allUsers[i].loggedIn === true) {   
-    userNameEl[0].textContent = allUsers[i].userName;    
+  if (allUsers[i].loggedIn === true) {
+    userNameEl[0].textContent = allUsers[i].userName;
     if (allUsers[i].highScore > 0) {
       userScoreEl[0].textContent = allUsers[i].highScore;
     } else {
       userScoreEl[0].textContent = 'None';
     }
+    break;
   } else {
     userNameEl[0].textContent = 'None';
     userScoreEl[0].textContent = 'None';
@@ -96,15 +97,16 @@ for (i = 0; i < allUsers.length; i++) {
 }
 // creates a label array that is at least 10 numbers long, max is length of user scores array
 var dataLabel = [];
-if (!currentUser('allScores')) {
+if (currentUser('allScores') === undefined) {
   for (i = 1; i <= 10; i++) {
     dataLabel.push(i);
   }
 } else {
-  for (i = 1; i <= currentUser('allScores').length; i ++) {
+  for (i = 1; i <= currentUser('allScores').length; i++) {
     dataLabel.push(i);
   }
 }
+
 // create variable that contains scatter plot objects
 var allpoints = [];
 // declare constructor for scatter plot objects
@@ -131,33 +133,39 @@ for (i = 0; i < dataLabel.length; i++) {
   }
   avgArray[i] /= counter;
 }
+// creates dataset for chart
+var dataSets = [{
+  type: 'scatter',
+  data: allpoints,
+  label: 'All Scores',
+  backgroundColor: 'rgb(78, 183, 248)',
+  borderColor: 'yellow',
+  pointRadius: 2
+},{
+  label: currentUser('userName'),
+  data: currentUser('allScores'),
+  fill: false,
+  pointRadius: 0,
+  borderColor: 'yellow',
+},{
+  type: 'line',
+  label: 'Average Score',
+  data: avgArray,
+  pointRadius: 0,
+  fill: false,
+  borderColor: 'rgb(78, 183, 248)'
+}];
+// removes current user dataset if current user has no score history
+if (currentUser('allScores') === undefined) {
+  dataSets.splice(1,1);
+}
 // creates chart to display results
 var ctx = document.getElementById('resultsChart');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: dataLabel,
-    datasets: [{
-      type: 'scatter',
-      data: allpoints,
-      label: 'All Scores',
-      backgroundColor: 'rgb(78, 183, 248)',
-      borderColor: 'yellow',
-      pointRadius: 2
-    },{
-      label: currentUser('userName'),
-      data: currentUser('allScores'),
-      fill: false,
-      pointRadius: 0,
-      borderColor: 'yellow'
-    },{
-      type: 'line',
-      label: 'Average Score',
-      data: avgArray,
-      pointRadius: 0,
-      fill: false,
-      borderColor: 'rgb(78, 183, 248)'
-    }],
+    datasets: dataSets
   },
   options: {
     title: {
@@ -190,30 +198,3 @@ var myChart = new Chart(ctx, {
     }
 }
 });
-
-/****************************************************/
-/* Functions to create test users & populate scores */
-/****************************************************/
-function randomScores() {
-  var minMaxOffset = 0;
-  var testScoreArray = [];
-  for (var i = 0; i < 10; i++) {
-    testScoreArray[i] = Math.round(Math.random() * ((8 + minMaxOffset) - (0 + minMaxOffset)) + (0 + minMaxOffset));
-    minMaxOffset += 2;
-  }
-  return testScoreArray;
-}
-
-// eslint-disable-next-line no-unused-vars
-function testUsers() {
-  new User('Michelle', false, randomScores());
-  new User('Lillian', false, randomScores());
-  new User('Gina', false, randomScores());
-  new User('Harlen', false, randomScores());
-  new User('Blandine', false, randomScores());
-  new User('Patrick', false, randomScores());
-  new User('Ken', false, randomScores());
-  new User('Eyob', false, randomScores());
-  new User('Matthew', false, randomScores());
-  localStorage.setItem('users', JSON.stringify(allUsers));
-}
