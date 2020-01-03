@@ -1,5 +1,10 @@
 body {
   font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
+h1 {
+  font-size: 24px;
 }
 
 /*************************/
@@ -49,10 +54,9 @@ a:hover {
 .user-bar {
   height: 3.1rem;
   width: 90%;
-  margin: 1rem auto;
-  padding: 0.5rem;
+  margin: 20px auto;
+  padding: 10px 5px;
   background-color: grey;
-  /* border: 1px solid black; */
   box-shadow: 0px 4px 6px #000000, 
   0.5px 0.5px 0.5px #000, 
   -0.5px -0.5px 0.5px #000, 
@@ -94,8 +98,7 @@ a:hover {
 
 #logout-form {
   float: left;
-  margin: auto 2rem;
-  font-size: 1.2rem;
+  font-size: 24px;
 }
 
 #logout-form p {

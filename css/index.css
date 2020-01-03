@@ -1,13 +1,6 @@
 /***********************/
 /* Global Page Styling */
 /***********************/
-/*
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-*/
 
 body {
   text-align: center;
@@ -36,7 +29,7 @@ h1 {
 p {
   width: 80%;
   margin: auto;
-  padding: 1rem;
+  padding: 12px 24px;
 }
 
 /********************************/
