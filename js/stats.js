@@ -156,7 +156,7 @@ var dataSets = [{
   borderColor: 'rgb(78, 183, 248)'
 }];
 // removes current user dataset if current user has no score history
-if (currentUser.allScores === undefined) {
+if (currentUser('allScores') === undefined) {
   dataSets.splice(1,1);
 }
 // creates chart to display results
