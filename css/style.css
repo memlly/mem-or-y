@@ -11,13 +11,13 @@ header {
 header a {
   float: left;
   text-align: center;
-  font-size: 18px;
   font-family: 'Courier New', monospace;
   padding: 12px;
+  font-size: 24px;
 }
 a {
   text-decoration: none;
-  color: rgb(78, 183, 248);
+  color: #030552;
   font-weight: bolder;
 }
 .header-right {
@@ -36,7 +36,7 @@ body {
 }
 .memy {
   font-style: italic;
-  color: rgb(78, 183, 248);
+  /* color:#030552; */
 }
 .pipes {
   color: #000;
@@ -95,7 +95,7 @@ a:hover {
   margin: auto 1rem;
   padding: 1rem;
   font-size: 1.2rem;
-  color: rgb(78, 183, 248);
+  color: #030552;
   font-weight: bold;
 }
 

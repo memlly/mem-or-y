@@ -50,7 +50,7 @@ p {
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
-  color: rgb(78, 183, 248);
+  color: #030552;
   padding: 1.2rem;
   margin: 2rem auto;
 }
@@ -100,7 +100,7 @@ p {
 
 #continue-game {
   display: inline;
-  color: rgb(78, 183, 248);
+  color: #030552;
   font-weight: bold;
   padding: 1rem;
   font-size: 1.2rem;
@@ -142,7 +142,7 @@ p {
 
 #play-again {
   display: inline;
-  color: rgb(78, 183, 248);
+  color: #030552;
   font-weight: bold;
   padding: 1rem;
   font-size: 1.2rem;
