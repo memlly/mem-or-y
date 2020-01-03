@@ -27,18 +27,20 @@ function Card(index = 0) {
   this.index = index;
   colorCards.push(this);
 }
-
+var colorCount = 0;
 // Declare render() method for Card instances.
 Card.prototype.render = function() {
   var cardContainer = document.getElementById('card-container');
   var newCard = document.createElement('div');
   newCard.classList.add('color-card');
+  newCard.classList.add('data-id' + colorCount);
   newCard.id = this.index;
   cardContainer.appendChild(newCard);
 };
 
 // Create and render four initial Card instances.
 for (let i = 0; i < 4; i++) {
+  colorCount = i;
   new Card(i).render();
 }
 
@@ -63,16 +65,16 @@ function initSequence() {
 // Declare function that flashes Card elements in sequence.
 function performSequence() {
   for (let i = 0; i < cards.length; i++) {
-    cards[i].style.backgroundColor = 'blue';
+    cards[i].classList.remove('cyan');
   }
   for (let i = 0; i < cardSequence.length; i++) {
     let timer = i;
     let cardIndex = cardSequence[i];
     let cardID = document.getElementById(colorCards[cardIndex].index);
     setTimeout(function() {
-      cardID.style.backgroundColor = 'yellow';
+      cardID.classList.add('darkgoldenrod');
       setTimeout(function() {
-        cardID.style.backgroundColor = 'blue';
+        cardID.classList.remove('darkgoldenrod');
       }, 500);
     }, 1000 * (timer + 1));
   }
@@ -90,15 +92,15 @@ function clickCompare(event) {
   clickedCards.push(parseInt(event.target.id));
   let cardID = document.getElementById(event.target.id);
   if (clickedCards[clickCount] === cardSequence[clickCount]) {
-    cardID.style.backgroundColor = 'green';
+    cardID.classList.add('cyan');
     setTimeout(function() {
-      cardID.style.backgroundColor = 'blue';
+      cardID.classList.remove('cyan');
     }, 500);
     clickCount++;
   } else {
     removeCardClicks();
     for (let i = 0; i < cards.length; i++) {
-      cards[i].style.backgroundColor = 'red';
+      cards[i].style.backgroundColor = 'crimson';
     }
     failResult();
   }
@@ -107,7 +109,8 @@ function clickCompare(event) {
     removeCardClicks();
     setTimeout(function() {
       for (let i = 0; i < cards.length; i++) {
-        cards[i].style.backgroundColor = 'green';
+        cards[i].classList.remove('darkgoldenrod');
+        cards[i].classList.add('cyan');
       }
     }, 500);
     setTimeout(function() {
@@ -202,11 +205,11 @@ function defaultMouse(event) {
 }
 
 function yellowMouse(event) {
-  event.target.style.backgroundColor = 'yellow';
+  event.target.classList.add('darkgoldenrod');
 }
 
 function blueMouse(event) {
-  event.target.style.backgroundColor = 'blue';
+  event.target.classList.remove('darkgoldenrod');
 }
 
 function clickMouse(event) {
