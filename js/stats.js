@@ -97,7 +97,7 @@ for (i = 0; i < allUsers.length; i++) {
 }
 // creates a label array that is at least 10 numbers long, max is length of user scores array
 var dataLabel = [];
-if (currentUser('allScores') === undefined) {
+if (currentUser('allScores') === undefined || currentUser('allScores') < 10) {
   for (i = 1; i <= 10; i++) {
     dataLabel.push(i);
   }
