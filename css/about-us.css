@@ -5,12 +5,9 @@ h1 {
   font-weight: 600;
 }
 section {
-  background-color: gray;
   min-width: fit-content;
   margin: 50px 2%;
   padding: 2%;
-  border: 1px #000 solid;
-  box-shadow: 10px 10px 10px #000;
 }
 /* .benefits section */
 .benefits {
@@ -19,9 +16,6 @@ section {
   margin: 50px auto;
   text-align: center;
 }
-/* li {
-  text-align: center;
-} */
 p {
   text-indent: 25px;
   text-align: left;
@@ -37,7 +31,6 @@ ul {
 }
 li {
   text-align: left;
-  /* font-weight: bolder; */
 }
 /* .developers section */
 .developers {

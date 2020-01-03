@@ -34,13 +34,6 @@ table {
   color: black;
   font-weight: bold;
   text-align: center;
-  background-color: gray;
-  box-shadow: 0px 4px 6px #000000, 
-    0.5px 0.5px 0.5px #000, 
-    -0.5px -0.5px 0.5px #000, 
-    -0.5px 0.5px 0.5px #000, 
-    0.5px -0.5px 0.5px #000;
-  border-radius: 15px;
 }
 td {
   font-size: 18px;
@@ -52,14 +45,5 @@ table tr:first-child {
 .chart {
   width: 800px;
   margin: auto;
-  background-color: gray;
-  /* border: black 1px solid; */
   margin-bottom: 65px;
-  box-shadow: 0px 4px 6px #000000, 
-  0.5px 0.5px 0.5px #000, 
-  -0.5px -0.5px 0.5px #000, 
-  -0.5px 0.5px 0.5px #000, 
-  0.5px -0.5px 0.5px #000;
-  border-bottom: 3px solid #000000;
-  border-radius: 15px;
 }
