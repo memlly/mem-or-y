@@ -1,6 +1,5 @@
 h1 {
   color: yellow;
-  font-family: 'Courier New', Courier, monospace;
   text-align: center;
   font-size: xx-large;
   font-weight: 600;
@@ -20,9 +19,9 @@ section {
   margin: 50px auto;
   text-align: center;
 }
-li {
+/* li {
   text-align: center;
-}
+} */
 p {
   text-indent: 25px;
   text-align: left;
@@ -38,7 +37,7 @@ ul {
 }
 li {
   text-align: left;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 /* .developers section */
 .developers {
@@ -67,15 +66,16 @@ label {
 }
 /* dev card bio styling */
 h4 {
-  font-family: 'Courier New', Courier, monospace;
   margin-top: 10px;
   font-size: 20px;
   color: yellow;
   font-weight: 600;
 }
 .bio {
-  margin: 0 74px;
-  width: 250px;
+  margin: -14px 42px 0;
+  width: 315px;
+  font-size: 16px;
+  font-weight: bolder;
 }
 .bio p {
   text-indent: 0px;
